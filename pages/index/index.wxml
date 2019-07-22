@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<swiper indicator-dots autoplay>
+  <swiper-item>
+    <image src='/icon/01.png' style='width:100%;height:100%'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/icon/01.png' style='width:100%;height:100%'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/icon/01.png' style='width:100%;height:100%'></image>
+  </swiper-item>
+</swiper>
+<!-- 省市区三级联动 -->
+<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+  <view class="region">
+    <view class='region_item'>{{region[0]}}
+    <image src='../../icon/sanjiao.svg' style='width:50rpx;height:50rpx'></image>
+    </view>
+    <view class='line'></view>
+    <view class='region_item'>{{region[1]}}</view>
+    <view class='line'></view>
+    <view class='region_item'>{{region[2]}}</view>
+  </view>
+</picker>
