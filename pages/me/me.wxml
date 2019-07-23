@@ -1,2 +1,73 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class='userInfo'>
+  <view class='avatarUrl'>
+    <image src='{{avatarUrl}}'></image>
+    <button class='nackName' hover-class='none' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>{{nickName}}</button>
+  </view>
+</view>
+<view class='order'>
+  <view class='order_title'>我的订单</view>
+  <view class='order_list'>
+    <view class='order_item' data-status='0' bindtap='toOrder'>
+      <image src='/icon/02.svg'></image>
+      <text>全部</text>
+    </view>
+    <view class='order_item' data-status='1' bindtap='toOrder'>
+      <image src='/icon/03.svg'></image>
+      <text>待付款</text>
+    </view>
+    <view class='order_item' data-status='2' bindtap='toOrder'>
+      <image src='/icon/04.svg'></image>
+      <text>待核销</text>
+    </view>
+    <view class='order_item' data-status='3' bindtap='toOrder'>
+      <image src='/icon/05.svg'></image>
+      <text>已完成</text>
+    </view>
+  </view>
+</view>
+<view class='myInfo'>
+  <view class='myInfo_item'>
+    <view class='item_l'>
+      <image src='/icon/collect.svg' style='width:40rpx;height:40rpx'></image>
+      <text style='margin-left:20rpx'>我的收藏</text>
+    </view>
+    <view class='item_r'>
+      <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
+    </view>
+  </view>
+  <view class='myInfo_item'>
+    <view class='item_l'>
+      <image src='/icon/shop.svg' style='width:40rpx;height:40rpx'></image>
+      <text style='margin-left:20rpx'>商家入口</text>
+    </view>
+    <view class='item_r'>
+      <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
+    </view>
+  </view>
+  <view class='myInfo_item'>
+    <view class='item_l'>
+      <image src='/icon/ts.svg' style='width:40rpx;height:40rpx'></image>
+      <text style='margin-left:20rpx'>投诉反馈</text>
+    </view>
+    <view class='item_r'>
+      <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
+    </view>
+  </view>
+  <view class='myInfo_item'>
+    <view class='item_l'>
+      <image src='/icon/about.svg' style='width:40rpx;height:40rpx'></image>
+      <text style='margin-left:20rpx'>关于我们</text>
+    </view>
+    <view class='item_r'>
+      <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
+    </view>
+  </view>
+</view>
+
+<view class='icon'>
+  <view class='icon_img'>
+    <image src='/icon/icon.png' style='width:100%;height:100%'></image>
+  </view>
+  <view style='margin-top:15rpx'>—— 快乐童年提供技术支持 ——</view>
+</view>

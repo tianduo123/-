@@ -1,4 +1,8 @@
 /**index.wxss**/
+page{
+  box-sizing: border-box;
+  padding-bottom: 30rpx
+}
 swiper{
   width: 100%;
   height: 400rpx;
@@ -26,4 +30,63 @@ swiper{
   height: 50rpx;
   width: 2rpx;
   background: #666
+}
+
+.item{
+  width: 100%
+}
+.content{
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx
+}
+.content_l{
+  width: 300rpx;
+  height: 200rpx
+}
+.content_r{
+  width: 55%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
+}
+.price{
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between */
+}
+.time{
+  width: 100%;
+  display: flex;
+  justify-content: space-between
+}
+.btn{
+  width: 150rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  background: #CC3300;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx
+}
+.icon {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 50rpx;
+}
+
+.icon_img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
 }

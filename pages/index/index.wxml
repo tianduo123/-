@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<swiper indicator-dots autoplay>
+<swiper indicator-dots autoplay indicator-active-color='#FFCC00'>
   <swiper-item>
     <image src='/icon/01.png' style='width:100%;height:100%'></image>
   </swiper-item>
@@ -14,7 +14,7 @@
 <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
   <view class="region">
     <view class='region_item'>{{region[0]}}
-    <image src='../../icon/sanjiao.svg' style='width:50rpx;height:50rpx'></image>
+      <image src='../../icon/sanjiao.svg' style='width:50rpx;height:50rpx'></image>
     </view>
     <view class='line'></view>
     <view class='region_item'>{{region[1]}}</view>
@@ -22,3 +22,92 @@
     <view class='region_item'>{{region[2]}}</view>
   </view>
 </picker>
+<!-- 活动列表 -->
+<view class='item'>
+  <view class='content'>
+    <view class='content_l'>
+      <image src='/icon/01.png' style='width:100%;height:100%'></image>
+    </view>
+    <view class='content_r'>
+      <view>这是活动名称</view>
+      <view class='price'>
+        <view style='margin-right:20rpx'>活动价</view>
+        <view style='color:#CC3300'>￥199.00</view>
+      </view>
+      <view class='time'>
+        <view>限时活动</view>
+        <view style='color:#CC3300'>进行中</view>
+      </view>
+      <view class='btn'>我要参加</view>
+    </view>
+  </view>
+  <view style='width:100%;height:20rpx;background:#eee'></view>
+</view>
+<view class='item'>
+  <view class='content'>
+    <view class='content_l'>
+      <image src='/icon/01.png' style='width:100%;height:100%'></image>
+    </view>
+    <view class='content_r'>
+      <view>这是活动名称</view>
+      <view class='price'>
+        <view style='margin-right:20rpx'>活动价</view>
+        <view style='color:#CC3300'>￥199.00</view>
+      </view>
+      <view class='time'>
+        <view>限时活动</view>
+        <view style='color:#CC3300'>进行中</view>
+      </view>
+      <view class='btn'>我要参加</view>
+    </view>
+  </view>
+  <view style='width:100%;height:20rpx;background:#eee'></view>
+</view>
+<view class='item'>
+  <view class='content'>
+    <view class='content_l'>
+      <image src='/icon/01.png' style='width:100%;height:100%'></image>
+    </view>
+    <view class='content_r'>
+      <view>这是活动名称</view>
+      <view class='price'>
+        <view style='margin-right:20rpx'>活动价</view>
+        <view style='color:#CC3300'>￥199.00</view>
+      </view>
+      <view class='time'>
+        <view>限时活动</view>
+        <view style='color:#CC3300'>进行中</view>
+      </view>
+      <view class='btn'>我要参加</view>
+    </view>
+  </view>
+  <view style='width:100%;height:20rpx;background:#eee'></view>
+</view>
+<view class='item'>
+  <view class='content'>
+    <view class='content_l'>
+      <image src='/icon/01.png' style='width:100%;height:100%'></image>
+    </view>
+    <view class='content_r'>
+      <view>这是活动名称</view>
+      <view class='price'>
+        <view style='margin-right:20rpx'>活动价</view>
+        <view style='color:#CC3300'>￥199.00</view>
+      </view>
+      <view class='time'>
+        <view>限时活动</view>
+        <view style='color:#CC3300'>进行中</view>
+      </view>
+      <view class='btn'>我要参加</view>
+    </view>
+  </view>
+  <view style='width:100%;height:20rpx;background:#eee'></view>
+</view>
+<!-- 开发标识 -->
+<view class='icon'>
+  <view class='icon_img'>
+    <image src='/icon/icon.png' style='width:100%;height:100%'></image>
+  </view>
+  <view style='margin-top:15rpx'>—— 快乐童年提供技术支持 ——</view>
+  <!-- <view></view> -->
+</view>
