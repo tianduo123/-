@@ -1,0 +1,52 @@
+<!--pages/store/store.wxml-->
+<view class='title'>
+  <view class='{{isSelect==0?"item2":"item"}}' data-status='0' bindtap='select'>未核销订单</view>
+  <view class='line'></view>
+  <view class='{{isSelect==1?"item2":"item"}}' data-status='1' bindtap='select'>已核销订单</view>
+</view>
+<view style='width:100%;height:20rpx;background:#eee'></view>
+
+<!-- 未核销订单 -->
+<view class='notComplete' wx:if='{{isSelect==0}}' wx:for='{{notComplete}}' wx:key>
+  <view class='not_l'>
+    <view class='userInfo'>
+      <view>用户信息：</view>
+      <view style='display:flex;align-items:center;width:70%'>
+        <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;border:1px solid #6699FF;margin-right:10rpx'></image>
+        <text class='text'>{{item.nickName}}</text>
+      </view>
+    </view>
+    <view class='orderNumber'>
+      <view>订单编号：</view>
+      <view>{{item.ord_bh}}</view>
+    </view>
+    <view class='orederTime'>
+      <view>下单时间：</view>
+      <view>{{item.add_time}}</view>
+    </view>
+  </view>
+  <view style='width:2rpx;height:100rpx;background:#666'></view>
+  <view class='not_r' bindtap='hexiao' data-bh='{{item.ord_bh}}'>核销</view>
+</view>
+<!-- 已核销订单 -->
+<view class='complete' wx:if='{{isSelect==1}}' wx:for='{{complete}}' wx:key>
+  <view class='userInfo2'>
+    <view>用户信息:</view>
+    <view style='display:flex;align-items:center;'>
+      <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;margin-right:10rpx;border:1px solid #6699FF;'></image>
+      <view>{{item.nickname}}</view>
+    </view>
+  </view>
+  <view class='orderNumber2'>
+    <view>订单编号:</view>
+    <view>{{item.ord_bh}}</view>
+  </view>
+  <view class='orderTime2'>
+    <view>下单时间:</view>
+    <view>{{item.add_time}}</view>
+  </view>
+  <view class='hexiaoTime'>
+    <view>核销时间:</view>
+    <view>{{item.hexiao_time}}</view>
+  </view>
+</view>

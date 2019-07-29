@@ -5,6 +5,22 @@
     <button class='nackName' hover-class='none' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>{{nickName}}</button>
   </view>
 </view>
+<!-- 我的佣金 -->
+<view class='money'>
+  <view class='myMoney' bindtap='myMoney'>
+    <image src='/icon/money.svg' style='width:50rpx;height:50rpx'></image>
+    <view class='moneyWrap'>
+      <text>我的佣金</text>
+      <text style='color:#FFCC00;margin-top:10rpx'>￥100.00</text>
+    </view>
+  </view>
+  <view style='width:2rpx;height:80rpx;background:#ccc'></view>
+  <view class='getMoney' bindtap='getMoney'>
+    <image src='/icon/tixian.svg' style='width:50rpx;height:50rpx'></image>
+    <text>佣金提现</text>
+  </view>
+</view>
+<!-- 我的订单 -->
 <view class='order'>
   <view class='order_title'>我的订单</view>
   <view class='order_list'>
@@ -17,17 +33,22 @@
       <text>待付款</text>
     </view>
     <view class='order_item' data-status='2' bindtap='toOrder'>
-      <image src='/icon/04.svg'></image>
+      <image src='/icon/04-2.svg' style='width:55rpx;height:55rpx'></image>
       <text>待核销</text>
     </view>
     <view class='order_item' data-status='3' bindtap='toOrder'>
       <image src='/icon/05.svg'></image>
       <text>已完成</text>
     </view>
+    <view class='order_item' data-status='4' bindtap='toOrder'>
+      <image src='/icon/07.svg'></image>
+      <text>已失效</text>
+    </view>
   </view>
 </view>
+<!-- 底部菜单 -->
 <view class='myInfo'>
-  <view class='myInfo_item'>
+  <view class='myInfo_item' bindtap='myCollect'>
     <view class='item_l'>
       <image src='/icon/collect.svg' style='width:40rpx;height:40rpx'></image>
       <text style='margin-left:20rpx'>我的收藏</text>
@@ -36,7 +57,7 @@
       <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
     </view>
   </view>
-  <view class='myInfo_item'>
+  <view class='myInfo_item' bindtap='store'>
     <view class='item_l'>
       <image src='/icon/shop.svg' style='width:40rpx;height:40rpx'></image>
       <text style='margin-left:20rpx'>商家入口</text>
@@ -45,7 +66,7 @@
       <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
     </view>
   </view>
-  <view class='myInfo_item'>
+  <view class='myInfo_item' bindtap='comment'>
     <view class='item_l'>
       <image src='/icon/ts.svg' style='width:40rpx;height:40rpx'></image>
       <text style='margin-left:20rpx'>投诉反馈</text>
@@ -54,20 +75,13 @@
       <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
     </view>
   </view>
-  <view class='myInfo_item'>
+  <view class='myInfo_item' bindtap='aboutUs'>
     <view class='item_l'>
-      <image src='/icon/about.svg' style='width:40rpx;height:40rpx'></image>
-      <text style='margin-left:20rpx'>关于我们</text>
+      <image src='/icon/code.svg' style='width:40rpx;height:40rpx'></image>
+      <text style='margin-left:20rpx'>我的推荐码</text>
     </view>
     <view class='item_r'>
       <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
     </view>
   </view>
-</view>
-
-<view class='icon'>
-  <view class='icon_img'>
-    <image src='/icon/icon.png' style='width:100%;height:100%'></image>
-  </view>
-  <view style='margin-top:15rpx'>—— 快乐童年提供技术支持 ——</view>
 </view>

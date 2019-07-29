@@ -3,13 +3,20 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/me/me",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/myCollect/myCollect",
+    "pages/storeLogin/storeLogin",
+    "pages/store/store",
+    "pages/comment/comment",
+    "pages/aboutUs/aboutUs",
+    "pages/myMoney/myMoney",
+    "pages/activeDetail/activeDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#FFCC00",
     "navigationBarTitleText": "无限体验",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#707070",

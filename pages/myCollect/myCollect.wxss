@@ -1,0 +1,65 @@
+/* pages/myCollect/myCollect.wxss */
+page{
+  box-sizing: border-box;
+  padding-bottom: 100rpx
+}
+.empty{
+  width: 100%;
+  margin-top: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size: 28rpx;
+}
+.empty>view{
+  width: 180rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  background: #FFCC33;
+  color: #fff;
+  border-radius: 10rpx
+}
+
+.item{
+  width: 100%
+}
+.content{
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx
+}
+.content_l{
+  width: 300rpx;
+  height: 200rpx
+}
+.content_r{
+  width: 55%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
+}
+.price{
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between */
+}
+.time{
+  width: 100%;
+  display: flex;
+  justify-content: space-between
+}
+.btn{
+  width: 150rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  background: #CC3300;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx
+}

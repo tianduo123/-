@@ -1,0 +1,51 @@
+/* pages/storeLogin/storeLogin.wxss */
+
+.wrap{
+  width: 90%;
+  height: 400rpx;
+  margin: 150rpx auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx
+}
+.antuCode{
+  display: flex;
+  align-items: center;
+}
+.antuCode>view{
+  width:50%;
+  border-left:1px solid #666;
+  color: #6699FF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+.send{
+   width:50%;
+  border-left:1px solid #666;
+  color: #6699FF;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center
+}
+.wrap>view{
+  width: 500rpx;
+  height: 80rpx;
+  border: 1px solid #666;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+}
+.iphone{
+  display: flex;
+  align-items: center;
+}
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #FFCC00;
+  color: #fff
+}

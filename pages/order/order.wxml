@@ -4,4 +4,32 @@
   <view class='{{isSelect==1?"item2":"item"}}' data-status='1' bindtap='select'>待付款</view>
   <view class='{{isSelect==2?"item2":"item"}}' data-status='2' bindtap='select'>待核销</view>
   <view class='{{isSelect==3?"item2":"item"}}' data-status='3' bindtap='select'>已完成</view>
+  <view class='{{isSelect==4?"item2":"item"}}' data-status='4' bindtap='select'>已失效</view>
+</view>
+<!-- 暂无订单 -->
+<view class='empty' wx:if='{{empty}}'>
+  <image src='/icon/empty2.svg' style='width:170rpx;height:170rpx'></image>
+  <view style='margin-top:20rpx'>暂无相关订单哦~</view>
+</view>
+<!-- 订单列表 -->
+<view class='orderList'>
+  <view class='orderItme'>
+    <view class='item_l'>
+      <image src='/icon/01.jpeg' style='width:300rpx;height:200rpx'></image>
+    </view>
+    <view class='item_r'>
+      <view class='name'>
+        <view>活动名称:</view>
+        <view style='width:200rpx;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;text-align:right'>这是活这是活动名称动名称</view>
+      </view>
+      <view class='price'>
+        <view>活动价钱:</view>
+        <view style='color:#CC3300'>￥199.00</view>
+      </view>
+      <view class='orderStatus'>
+        <view>订单状态:</view>
+        <view style='color:#CC3300'>待付款</view>
+      </view>
+    </view>
+  </view>
 </view>

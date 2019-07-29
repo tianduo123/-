@@ -1,0 +1,28 @@
+<!--pages/myCollect/myCollect.wxml-->
+<view class='wrap' wx:if='{{collectList}}'>
+  <view class='item' wx:for='{{collectList}}' wx:key >
+    <view class='content'>
+      <view class='content_l'>
+        <image src='{{imgUrl+item.image}}' style='width:100%;height:100%'></image>
+      </view>
+      <view class='content_r'>
+        <view>{{item.title}}</view>
+        <view class='price'>
+          <view style='margin-right:20rpx'>活动价</view>
+          <view style='color:#CC3300'>￥{{item.price}}</view>
+        </view>
+        <view class='time'>
+          <view>限时活动</view>
+          <view style='color:#CC3300'>{{item.type==0?"未开始":item.type==1?"进行中":"已结束"}}</view>
+        </view>
+        <view class='btn'>我要参加</view>
+      </view>
+    </view>
+    <view style='width:100%;height:20rpx;background:#eee'></view>
+  </view>
+</view>
+<view class='empty' wx:else>
+  <image src='/icon/empty.svg' style='width:200rpx;height:200rpx'></image>
+  <text style='margin:30rpx'>还没有收藏哦,快去逛逛吧</text>
+  <view bindtap='shopping'>去逛一逛</view>
+</view>

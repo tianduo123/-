@@ -1,0 +1,33 @@
+/* pages/comment/comment.wxss */
+.wrap{
+  width: 90%;
+  height: 500rpx;
+  margin: 50rpx auto;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding: 20rpx
+}
+.textarea{
+  width: 100%;
+  height: 400rpx
+}
+.number{
+  width: 100%;
+  height: 60rpx;
+  text-align: right;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #ccc
+}
+.submit{
+  width: 300rpx;
+  height: 80rpx;
+  background: #FFCC00;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  border: 1px solid #666;
+  margin: 0 auto;
+  font-size: 28rpx
+}

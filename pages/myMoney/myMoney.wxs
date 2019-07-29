@@ -1,0 +1,4 @@
+var Sub = function(a){
+  return a.split(' ')
+}
+module.exports.Sub = Sub

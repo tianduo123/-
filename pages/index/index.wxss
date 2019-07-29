@@ -31,7 +31,13 @@ swiper{
   width: 2rpx;
   background: #666
 }
-
+.empty{
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  font-size: 28rpx;
+}
 .item{
   width: 100%
 }
@@ -72,6 +78,21 @@ swiper{
   color: #fff;
   text-align: center;
   line-height: 50rpx
+}
+button {
+  width: 150rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  background: #CC3300;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  margin-left: 0;
+  padding: 0
+}
+button::after {
+  border: none;
 }
 .icon {
   width: 100%;

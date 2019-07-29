@@ -1,0 +1,8 @@
+<!--pages/comment/comment.wxml-->
+<view class='wrap'>
+  <textarea class='textarea' placeholder='请提出您的宝贵意见，以便我们更好的服务' value='{{val}}'
+   maxlength='200' bindinput='getUserComment'>
+  </textarea>
+  <view class='number'>{{num}}/200</view>
+</view>
+<view class='submit' bindtap='submit'>立即提交</view>

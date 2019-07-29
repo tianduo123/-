@@ -1,4 +1,5 @@
 //app.js
+let api = require('./request/api.js')
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -10,6 +11,14 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        // console.log(res)
+        wx.request({
+          url: api.getOpenid(res.code),
+          success:(res)=>{
+            console.log(res)
+            this.globalData.openid = res.data.openid
+          }
+        })
       }
     })
     // 获取用户信息

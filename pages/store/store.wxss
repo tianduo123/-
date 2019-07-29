@@ -1,0 +1,86 @@
+/* pages/store/store.wxss */
+page{
+  box-sizing: border-box;
+  padding-bottom: 100rpx
+}
+.title{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #fff
+}
+.line{
+  width: 2rpx;
+  height: 60rpx;
+  background: #666
+}
+.item{
+  width: 49%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #666
+}
+.item2{
+  width: 49%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #CC3300;
+  color: #CC3300
+}
+.notComplete{
+  width: 95%;
+  height: 250rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  align-items: center
+}
+.not_l{
+  width: 70%;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 28rpx
+}
+.text{
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+.userInfo,.orderNumber,.orederTime{
+  display: flex;
+  align-items: center;
+}
+.not_r{
+  width: 20%;
+  height: 50rpx;
+  background: #6699FF;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff
+}
+.complete{
+  width: 95%;
+  height: 250rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #666;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 28rpx
+}
+.userInfo2,.orderNumber2,.orderTime2,.hexiaoTime{
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}

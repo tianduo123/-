@@ -9,7 +9,8 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.7",
@@ -39,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -52,6 +53,48 @@
 					"id": -1,
 					"name": "订单",
 					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "myCollect",
+					"pathName": "pages/myCollect/myCollect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "storeLogin",
+					"pathName": "pages/storeLogin/storeLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "aboutUs",
+					"pathName": "pages/aboutUs/aboutUs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的佣金",
+					"pathName": "pages/myMoney/myMoney",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家核销",
+					"pathName": "pages/store/store",
 					"scene": null
 				}
 			]

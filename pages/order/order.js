@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // isSelect:0
+    empty:''
   },
   select(e){
     console.log(e)

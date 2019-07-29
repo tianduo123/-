@@ -21,3 +21,44 @@
   border-bottom: 3px solid #CC3300;
   color: #CC3300
 }
+
+.empty{
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 28rpx
+}
+.orderList{
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.orderItme{
+  width: 100%;
+  height: 250rpx;
+  border-bottom: 1px solid #666;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between */
+}
+.item_l{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%
+}
+.item_r{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around
+}
+.name,.price,.orderStatus{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx
+}
