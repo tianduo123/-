@@ -5,42 +5,54 @@
     <button class='nackName' hover-class='none' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>{{nickName}}</button>
   </view>
 </view>
-<!-- 我的佣金 -->
+<!-- 我的积分 -->
 <view class='money'>
   <view class='myMoney' bindtap='myMoney'>
     <image src='/icon/money.svg' style='width:50rpx;height:50rpx'></image>
     <view class='moneyWrap'>
-      <text>我的佣金</text>
+      <text>我的积分</text>
       <text style='color:#FFCC00;margin-top:10rpx'>￥100.00</text>
     </view>
   </view>
   <view style='width:2rpx;height:80rpx;background:#ccc'></view>
-  <view class='getMoney' bindtap='getMoney'>
+  <view class='getMoney' bindtap='aboutJf'>
     <image src='/icon/tixian.svg' style='width:50rpx;height:50rpx'></image>
-    <text>佣金提现</text>
+    <text>关于积分</text>
+  </view>
+</view>
+<!-- 积分规则蒙层 -->
+<view class='rule_wrap' wx:if='{{isShow}}'>
+  <view class='content'>
+    <view style='text-align:right'>
+      <image src='/icon/close.svg' style='width:40rpx;height:40rpx' bindtap='closeRule'></image>
+      <view class='title'>积分规则</view>
+    </view>
+    <view class='rule_detail'>
+  
+    </view>
   </view>
 </view>
 <!-- 我的订单 -->
 <view class='order'>
   <view class='order_title'>我的订单</view>
   <view class='order_list'>
-    <view class='order_item' data-status='0' bindtap='toOrder'>
+    <view class='order_item' data-status='4' bindtap='toOrder'>
       <image src='/icon/02.svg'></image>
       <text>全部</text>
     </view>
-    <view class='order_item' data-status='1' bindtap='toOrder'>
+    <view class='order_item' data-status='0' bindtap='toOrder'>
       <image src='/icon/03.svg'></image>
       <text>待付款</text>
     </view>
-    <view class='order_item' data-status='2' bindtap='toOrder'>
+    <view class='order_item' data-status='1' bindtap='toOrder'>
       <image src='/icon/04-2.svg' style='width:55rpx;height:55rpx'></image>
       <text>待核销</text>
     </view>
-    <view class='order_item' data-status='3' bindtap='toOrder'>
+    <view class='order_item' data-status='2' bindtap='toOrder'>
       <image src='/icon/05.svg'></image>
       <text>已完成</text>
     </view>
-    <view class='order_item' data-status='4' bindtap='toOrder'>
+    <view class='order_item' data-status='3' bindtap='toOrder'>
       <image src='/icon/07.svg'></image>
       <text>已失效</text>
     </view>

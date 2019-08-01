@@ -9,18 +9,27 @@ Page({
   data: {
     isSelect: 0,
     page:0,
-    size:5
+    size:5,
+    hasOrder: true
   },
   //商家所有订单
   storeOrder(){
     wx.request({
-      url: api.storeOrder(1,3,this.data.page,this.data.size),
+      url: api.storeOrder(this.data.activeId,this.data.shopId,this.data.page,this.data.size),
       success:res=>{
         console.log(res)
-        this.setData({
-          notComplete:res.data.datas.no,
-          complete:res.data.datas.yes
-        })
+        if(res.data.status==1){
+          this.setData({
+            notComplete: res.data.datas.no,
+            complete: res.data.datas.yes
+          })
+        }else{
+          //该商家暂无订单
+          this.setData({
+            hasOrder:false
+          })
+        }
+
       }
     })
   },
@@ -47,7 +56,7 @@ Page({
             title: '正在核销',
             success:()=>{
               wx.request({
-                url: api.hexiao(this.data.order_bh,1,3),
+                url: api.hexiao(this.data.order_bh, this.data.activeId, this.data.shopId),
                 success:res=>{
                   console.log(res)
                   if(res.data.status==1){

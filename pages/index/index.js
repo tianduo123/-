@@ -11,12 +11,12 @@ Page({
     region: ['省', '市', '县'],
     isHasAuthorization:false,
     page: 0,
-    size: 3,
+    size: 50,
     address: 0
   },
   //用户授权
   getUserInfo(e) {
-    console.log(e)
+    // console.log(e)
     if (e.detail.userInfo) {
       this.setData({
         isHasAuthorization:true
@@ -25,7 +25,7 @@ Page({
       wx.request({
         url: api.saveUserInfo(app.globalData.openid, e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl) ,
         success:(res)=>{
-          console.log(res)
+          // console.log(res)
           if(res.data.status==1){
             console.log('授权成功')
           }else{
@@ -57,7 +57,7 @@ Page({
     wx.request({
       url: api.activeList(this.data.page,this.data.size,this.data.address),
       success:res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.status==1){
           this.setData({
             activeList: res.data.datas
@@ -73,10 +73,11 @@ Page({
     })
   },
   //参加活动
-  join(){
+  join(e){
+    console.log(e)
     if(app.globalData.userInfo){
       wx.navigateTo({
-        url: '../activeDetail/activeDetail',
+        url: `../activeDetail/activeDetail?id=${e.currentTarget.dataset.id}`,
       })
     }else{
       console.log('用户未授权')

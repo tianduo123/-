@@ -1,0 +1,33 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='detail'>
+  <view style='font-size:30rpx;font-weight:bold;color:#9900CC;text-align:center'>体验活动详情</view>
+  <view class='act_title'>{{detail.title}}</view>
+  <view class='act_joinnum'>已有{{detail.num}}人参加</view>
+  <view class='cat_time' wx:if='{{isEnd}}'>活动已结束</view>
+  <view class='cat_time' wx:else>活动倒计时{{d}}天{{h}}小时{{m}}分钟{{s}}秒</view>
+</view>
+<view class='order'>
+  <view class='order_item'>
+    <view>订单金额</view>
+    <view>{{orderDetail.ord_price}}</view>
+  </view>
+  <view class='order_item'>
+    <view>订单编号</view>
+    <view>{{orderDetail.ord_bh}}</view>
+  </view>
+  <view class='order_item'>
+    <view>订单状态</view>
+    <view>{{orderDetail.status==1?"待核销":orderDetail.status==2?"已完成":"已失效"}}</view>
+  </view>
+  <view class='order_item'>
+    <view>下单时间</view>
+    <view>{{orderDetail.add_time}}</view>
+  </view>
+  <view class='order_item'>
+    <view>支付方式</view>
+    <view style='display:flex;align-items:center'>
+      <image src='/icon/pay.svg' style='width:60rpx;height:60rpx;margin-right:10rpx'></image>
+      <text>微信支付</text>
+    </view>
+  </view>
+</view>

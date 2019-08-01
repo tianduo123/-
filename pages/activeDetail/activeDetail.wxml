@@ -1,2 +1,119 @@
 <!--pages/avtiveDetail/activeDetail.wxml-->
-<text>pages/avtiveDetail/activeDetail.wxml</text>
+<view class='wrap'>
+  <!-- 活动规则 -->
+  <view class='rule' bindtap='openRule'>活动规则</view>
+  <!-- 活动规则蒙层 -->
+  <view class='rule_wrap' wx:if='{{isShow}}'>
+    <view class='content'>
+      <view style='text-align:right'>
+        <image src='/icon/close.svg' style='width:40rpx;height:40rpx' bindtap='closeRule'></image>
+      </view>
+      <view class='title'>活动规则</view>
+      <view class='rule_detail'>
+        <view>1.最近的工作主要是在配合宣传</view>
+        <view>2.最近的工作主要是在配合宣传，么要做哪吒？</view>
+        <view>3.最近的工作主要是在配合宣传，在路演过程中面对面接触到很多观众。基本所有人都会问我：为什么要做哪吒？</view>
+        <view>4.最近的工作主要是在配合宣传。基本所有人都会问我：为什么要做哪吒？</view>
+        <view>5.最近的工作主要是在配合宣传，在路演过程中面对面接触到很多观众。基本所有人都会问我：为什么要做哪吒？</view>
+        <view>6.最近的工作主要是在配合宣传</view>
+      </view>
+    </view>
+  </view>
+  <!-- 活动详情 -->
+  <view class='detail'>
+    <view style='font-size:30rpx;font-weight:bold;color:#9900CC;text-align:center'>体验活动详情</view>
+    <view class='act_title'>{{detail.title}}</view>
+    <view class='act_joinnum'>已有{{detail.num}}人参加</view>
+    <view class='cat_time' wx:if='{{isEnd}}'>活动已结束</view>
+    <view class='cat_time' wx:else>活动倒计时{{d}}天{{h}}小时{{m}}分钟{{s}}秒</view>
+  </view>
+  <!-- 佣金提示 -->
+  <view class='info'>
+    <image src='/icon/tishi.svg' style='width:80rpx;height:80rpx'></image>
+    <view style='width:70%;'>每推荐一人购买活动，即可获得100元佣金奖励哦</view>
+  </view>
+  <!-- 联盟商家 -->
+  <view class='shopList'>
+    <swiper autoplay class='swiper'>
+      <swiper-item wx:for='{{newArr}}' wx:key>
+        <view class='shopItem' wx:for='{{item}}' wx:key data-id='{{item.id}}' bindtap='toShopDetail'>
+          <image src='{{imgUrl+item.logo}}' style='width:60rpx;height:60rpx;border-radius:50%'></image>
+          <text>{{item.name}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 佣金排行 -->
+  <view class='rankList'>
+    <view class='rankTitle'>
+      <text>佣金排行</text>
+      <image src='/icon/question.svg' style='width:30rpx;height:30rpx;margin-left:10rpx;line-height:70rpx' bindtap='question'></image>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+    <view class='rankItem'>
+      <view class='userInfo'>
+        <text style='color:#FF3300'>1</text>
+        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>用户微信名</text>
+      </view>
+      <view class='price'>1300元</view>
+    </view>
+  </view>
+</view>
+
+<view class='pay' bindtap='pay'>立即购买</view>

@@ -10,7 +10,9 @@
     "pages/comment/comment",
     "pages/aboutUs/aboutUs",
     "pages/myMoney/myMoney",
-    "pages/activeDetail/activeDetail"
+    "pages/activeDetail/activeDetail",
+    "pages/orderDetail/orderDetail",
+    "pages/orderDetail2/orderDetail2"
   ],
   "window": {
     "backgroundTextStyle": "light",

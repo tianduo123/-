@@ -1,6 +1,6 @@
 <!--pages/myCollect/myCollect.wxml-->
 <view class='wrap' wx:if='{{collectList}}'>
-  <view class='item' wx:for='{{collectList}}' wx:key >
+  <view class='item' wx:for='{{collectList}}' wx:key data-id='{{item.activity_id}}' bindtap='toDetail'>
     <view class='content'>
       <view class='content_l'>
         <image src='{{imgUrl+item.image}}' style='width:100%;height:100%'></image>

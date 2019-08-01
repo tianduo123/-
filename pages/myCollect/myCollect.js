@@ -9,7 +9,7 @@ Page({
   data: {
     collectList:'',
     page:0,
-    size:3,
+    size:10,
     imgUrl:''
   },
   //我的收藏
@@ -26,6 +26,12 @@ Page({
           console.log('暂无收藏')
         }
       }
+    })
+  },
+  //收藏详情
+  toDetail(e){
+    wx.navigateTo({
+      url: `../activeDetail/activeDetail?id=${e.currentTarget.dataset.id}`,
     })
   },
   //逛一逛

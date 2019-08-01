@@ -12,6 +12,10 @@ function saveUserInfo(a, b, c) {
 function activeList(a,b,c){
   return BASE_API + `article/article_list?page=${a}&size=${b}&address=${c}`
 }
+//活动详情
+function activeDetail(a,b){
+  return BASE_API + `article/article_detail?id=${a}&openid=${b}`
+}
 //投诉反馈
 function comment(){
   return BASE_API + 'comment/comment'
@@ -44,6 +48,26 @@ function storeOrder(a,b,c,d){
 function hexiao(a,b,c){
   return BASE_API + `shop/shop_confirm?ord_bh=${a}&activity_id=${b}&shop_id=${c}`
 }
+//下单
+function makeOrder(a,b,c,d,e,f,g){
+  return BASE_API + `order/order?openid=${a}&ord_goods=${b}&activity_id=${c}&nickname=${d}&headimage=${e}&ord_price=${f}&tuijian=${g}`
+}
+//支付
+function pay(a,b,c){
+  return BASE_API + `pay/pay?ord_bh=${a}&openid=${b}&ord_price=${c}`
+}
+//订单列表
+function orderList(a,b,c,d){
+  return BASE_API + `order/order_list?page=${a}&size=${b}&openid=${c}&status=${d}`
+}
+//订单详情
+function orderDetail(a){
+  return BASE_API + `order/order_detail?id=${a}`
+}
+//活动商家列表
+function shopList(a){
+  return BASE_API + `shop/shop_list?activity_id=${a}`
+}
 module.exports = {
   BASE_IMG,
   getOpenid,
@@ -56,5 +80,11 @@ module.exports = {
   storeLogin,
   getCode,
   storeOrder,
-  hexiao
+  hexiao,
+  activeDetail,
+  makeOrder,
+  pay,
+  orderList,
+  orderDetail,
+  shopList
 }

@@ -43,7 +43,7 @@ Page({
   //去订单页
   toOrder(e) {
     if (this.hasAuthorization()) {
-      console.log(e)
+      // console.log(e)
       wx.navigateTo({
         url: `../order/order?status=${e.currentTarget.dataset.status}`,
       })
@@ -62,34 +62,49 @@ Page({
       console.log('用户未授权')
     }
   },
-  //佣金提现
-  getMoney() {
-    if (this.hasAuthorization()) {
-      wx.showModal({
-        title: '佣金提现',
-        content: '确定将佣金全部提现吗?',
-        success: (res) => {
-          if (res.confirm) {
-            wx.showLoading({
-              title: '提现请求中',
-            })
-            setTimeout(() => {
-              wx.hideLoading()
-              wx.showToast({
-                title: '提现成功,预计2小时到账',
-                icon: 'none'
-              })
-            }, 1000)
-          } else {
-            console.log('取消提现')
-          }
-        }
+  //关于积分
+  aboutJf(){
+    if(this.hasAuthorization()){
+      this.setData({
+        isShow:true
       })
-    } else {
+    }else{
       console.log('用户未授权')
     }
-
   },
+  closeRule(){
+    this.setData({
+      isShow:false
+    })
+  },
+  //佣金提现
+  // getMoney() {
+  //   if (this.hasAuthorization()) {
+  //     wx.showModal({
+  //       title: '佣金提现',
+  //       content: '确定将佣金全部提现吗?',
+  //       success: (res) => {
+  //         if (res.confirm) {
+  //           wx.showLoading({
+  //             title: '提现请求中',
+  //           })
+  //           setTimeout(() => {
+  //             wx.hideLoading()
+  //             wx.showToast({
+  //               title: '提现成功,预计2小时到账',
+  //               icon: 'none'
+  //             })
+  //           }, 1000)
+  //         } else {
+  //           console.log('取消提现')
+  //         }
+  //       }
+  //     })
+  //   } else {
+  //     console.log('用户未授权')
+  //   }
+
+  // },
   //我的收藏
   myCollect(){
     if(this.hasAuthorization()){

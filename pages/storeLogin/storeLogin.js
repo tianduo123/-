@@ -109,7 +109,6 @@ Page({
       })
     } else {
       // console.log('登录成功')
-
       wx.showLoading({
         title: '正在登录',
       })
