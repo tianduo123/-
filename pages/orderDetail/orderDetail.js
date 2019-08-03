@@ -56,37 +56,39 @@ Page({
       url: api.pay(this.data.bh, app.globalData.openid, this.data.detail.price),
       success: res => {
         console.log(res)
-        if (res.data.status == 2) {
-          wx.showToast({
-            title: '活动还没开始',
-            icon: 'none'
-          })
-        } else if (res.data.status == 0) {
-          wx.showToast({
-            title: '该订单已经支付过',
-            icon: 'none'
-          })
-        } else if (res.data.status == 3) {
-          wx.showModal({
-            title: '提示',
-            content: '活动已结束，请浏览其他活动吧',
-            showCancel: false,
-            success: res => {
-              if (res.confirm) {
-                wx.showLoading({
-                  title: '跳转中',
-                  success: () => {
-                    setTimeout(() => {
-                      wx.hideLoading()
-                      wx.switchTab({
-                        url: '../index/index',
-                      })
-                    }, 1000)
-                  }
-                })
+        if (res.data.status) {
+          if (res.data.status == 2) {
+            wx.showToast({
+              title: '活动还没开始',
+              icon: 'none'
+            })
+          } else if (res.data.status == 0) {
+            wx.showToast({
+              title: '该订单已经支付过',
+              icon: 'none'
+            })
+          } else if (res.data.status == 3) {
+            wx.showModal({
+              title: '提示',
+              content: '活动已结束，请浏览其他活动吧',
+              showCancel: false,
+              success: res => {
+                if (res.confirm) {
+                  wx.showLoading({
+                    title: '跳转中',
+                    success: () => {
+                      setTimeout(() => {
+                        wx.hideLoading()
+                        wx.switchTab({
+                          url: '../index/index',
+                        })
+                      }, 1000)
+                    }
+                  })
+                }
               }
-            }
-          })
+            })
+          }
         } else {
           wx.requestPayment({
             timeStamp: res.data.timeStamp,
@@ -186,7 +188,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  // onShareAppMessage: function() {
 
-  }
+  // }
 })

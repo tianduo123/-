@@ -79,7 +79,7 @@ swiper{
   text-align: center;
   line-height: 50rpx
 }
-button {
+/* button {
   width: 150rpx;
   height: 50rpx;
   border-radius: 10rpx;
@@ -93,7 +93,7 @@ button {
 }
 button::after {
   border: none;
-}
+} */
 .icon {
   width: 100%;
   display: flex;

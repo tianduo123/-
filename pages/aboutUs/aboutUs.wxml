@@ -1,2 +1,8 @@
 <!--pages/aboutUs/aboutUs.wxml-->
+<view class='wrap'>
+  <image src='{{qrcode}}' show-menu-by-longpress='true'></image>
+</view>
+<view class='info'>
+  *长按此二维码推荐给好友叭
+</view>
 

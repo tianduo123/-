@@ -7,15 +7,19 @@
 </view> -->
 <view style='width:100%;height:20rpx;background:#eee'></view>
 <!-- 佣金获取记录表 -->
-<view class='getRecord'>
+<view class='getRecord'  wx:if='{{getRecord}}'>
   <view class='record_item' wx:for='{{getRecord}}' wx:key>
     <view class='userInfo'>
-      <image src='{{item.head_tui}}' style='width:50rpx;height:50rpx;border-radius:50%;margin-right:10rpx;'></image>
-      <text>{{item.nickname_tui}}</text>
+      <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;margin-right:10rpx;'></image>
+      <text>{{item.nickname}}</text>
     </view>
     <view class='price'>+ {{item.money}}</view>
     <view class='time'>{{hotel.Sub(item.add_time)[0]}}</view>
   </view>
+</view>
+<view class='empty' wx:else>
+  <image src='/icon/empty2.svg' style='width:150rpx;height:150rpx;margin-bottom:30rpx'></image>
+  <view>暂无积分</view>
 </view>
 <!-- 佣金提现记录表 -->
 <!-- <view class='getRecord' wx:if='{{isSelect==1}}'>

@@ -52,7 +52,25 @@ Page({
     }
 
   },
-  //我的佣金
+  //我的积分
+  myJf(){
+    wx.request({
+      url: api.myJf(app.globalData.openid),
+      success:res=>{
+        console.log(res)
+        if(res.data.status==1){
+          this.setData({
+            jf:res.data.info
+          })
+        }else{
+          this.setData({
+            jf:''
+          })
+        }
+      }
+    })
+  },
+  //我的积分列表
   myMoney(){
     if(this.hasAuthorization()){
       wx.navigateTo({
@@ -72,6 +90,7 @@ Page({
       console.log('用户未授权')
     }
   },
+  //关闭积分
   closeRule(){
     this.setData({
       isShow:false
@@ -118,9 +137,45 @@ Page({
   //商家入口
   store(){
     if(this.hasAuthorization()){
-      wx.navigateTo({
-        url: '../storeLogin/storeLogin',
+      /*
+        通过缓存判断该商家有没有登录过
+          --> 登录过直接跳转到商家订单页
+          --> 没登录过跳转到商家登录页
+       */
+      wx.getStorage({
+        key: 'isLogin',
+        success:(res)=>{
+          console.log(res)
+            console.log('跳转到商家订单页')
+            wx.getStorage({
+              key: 'shop_id',
+              success:(res)=>{
+                console.log(res)
+                this.setData({
+                  shop_id:res.data
+                })
+              },
+            })
+            wx.getStorage({
+              key: 'active_id',
+              success:(res)=>{
+                this.setData({
+                  active_id:res.data
+                })
+              },
+            })
+            wx.navigateTo({
+              url: `../store/store?shopId=${this.data.shop_id}&activeId=${this.data.active_id}`,
+            })
+        },
+        fail:res=>{
+          console.log('没有isLogin缓存')
+          wx.navigateTo({
+            url: '../storeLogin/storeLogin',
+          })
+        }
       })
+
     }else{
       console.log('用户未授权')
     }
@@ -135,16 +190,21 @@ Page({
       console.log('用户未授权')
     }
   },
-  //关于我们
+  //我的推荐码
   aboutUs(){
-    wx.navigateTo({
-      url: '../aboutUs/aboutUs',
-    })
+    if(this.hasAuthorization()){
+      wx.navigateTo({
+        url: '../aboutUs/aboutUs',
+      })
+    }else{
+      console.log('用户未授权')
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.myJf()
   },
 
   /**
@@ -199,7 +259,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  // onShareAppMessage: function() {
 
-  }
+  // }
 })

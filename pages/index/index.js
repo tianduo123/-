@@ -14,27 +14,7 @@ Page({
     size: 50,
     address: 0
   },
-  //用户授权
-  getUserInfo(e) {
-    // console.log(e)
-    if (e.detail.userInfo) {
-      this.setData({
-        isHasAuthorization:true
-      })
-      app.globalData.userInfo = e.detail.userInfo
-      wx.request({
-        url: api.saveUserInfo(app.globalData.openid, e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl) ,
-        success:(res)=>{
-          // console.log(res)
-          if(res.data.status==1){
-            console.log('授权成功')
-          }else{
-            console.log('授权失败')
-          }
-        }
-      })
-    }
-  },
+
   //选择活动地区
   bindRegionChange(e) {
     console.log(e)
@@ -72,25 +52,44 @@ Page({
       }
     })
   },
+  //推荐活动轮播
+  tuijian(){
+    wx.request({
+      url: api.tuijian(),
+      success:res=>{
+        console.log(res)
+        this.setData({
+          tjList:res.data.info
+        })
+      }
+    })
+  },
   //参加活动
   join(e){
-    console.log(e)
-    if(app.globalData.userInfo){
       wx.navigateTo({
         url: `../activeDetail/activeDetail?id=${e.currentTarget.dataset.id}`,
       })
-    }else{
-      console.log('用户未授权')
-    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     this.setData({
+      imgUrl: api.BASE_IMG
+    })
+    // !!!判断用户是否通过扫码进入该小程序
+    if (options.scene){
+      console.log('用户通过二维码进入小程序')
+      var scene = decodeURIComponent(options.scene);
+      app.globalData.shareUserId = scene
+    }else{
+      console.log('没有二维码')
+    }
+    this.setData({
       imgUrl:api.BASE_IMG
     })
     this.getActiveList()
+    this.tuijian()
   },
 
   /**
@@ -125,7 +124,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    //刷新活动列表
+    console.log('下拉刷新')
+    wx.showLoading({
+      title: '正在刷新',
+      success:res=>{
+        setTimeout(()=>{
+          this.getActiveList()
+          wx.hideLoading()
+          wx.stopPullDownRefresh()
+        },1000)
+      }
+    })
   },
 
   /**
@@ -138,7 +148,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  // onShareAppMessage: function() {
 
-  }
+  // }
 })

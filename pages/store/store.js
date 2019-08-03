@@ -29,17 +29,23 @@ Page({
             hasOrder:false
           })
         }
-
       }
     })
   },
   //选择分类
   select(e) {
     console.log(e)
-    this.setData({
-      isSelect: e.currentTarget.dataset.status
+    wx.showLoading({
+      title: '查询中请稍后',
     })
-    this.storeOrder()
+    setTimeout(()=>{
+      this.setData({
+        isSelect: e.currentTarget.dataset.status
+      })
+      this.storeOrder()
+      wx.hideLoading()
+    },1000)
+ 
   },
   //核销订单
   hexiao(e){
@@ -123,7 +129,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.showLoading({
+      title: '正在刷新',
+    })
+    setTimeout(()=>{
+      this.storeOrder()
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    },1000)
   },
 
   /**
@@ -136,7 +149,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

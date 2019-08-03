@@ -37,8 +37,10 @@
     <swiper autoplay class='swiper'>
       <swiper-item wx:for='{{newArr}}' wx:key>
         <view class='shopItem' wx:for='{{item}}' wx:key data-id='{{item.id}}' bindtap='toShopDetail'>
-          <image src='{{imgUrl+item.logo}}' style='width:60rpx;height:60rpx;border-radius:50%'></image>
-          <text>{{item.name}}</text>
+          <view style='display:flex;height:100%;flex-direction:column;justify-content:space-around;align-items:center'>
+            <image src='{{imgUrl+item.logo}}' style='width:60rpx;height:60rpx;border-radius:50%'></image>
+            <text style=' width: 90%;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap'>{{item.name}}</text>
+          </view>
         </view>
       </swiper-item>
     </swiper>
@@ -115,5 +117,19 @@
     </view>
   </view>
 </view>
+<view class='bottom'>
+  <button class='like' hover-class='none' open-type='{{isHasAuthorization?"":"getUserInfo"}}' bindgetuserinfo='getUserInfo' bindtap='{{isHasAuthorization?"like":""}}'>
+    <view>
+      <image src='/icon/like.svg' style='width:40rpx;height:40rpx;margin-right:10rpx'></image>
+      <text>{{isLike==1?"已收藏":"收藏"}}</text>
+    </view>
+  </button>
+  <button class='pay' hover-class='none' open-type='{{isHasAuthorization?"":"getUserInfo"}}' bindgetuserinfo='getUserInfo' bindtap='{{isHasAuthorization?"pay":""}}'>
+    <view>
+    <image src='/icon/buy.svg' style='width:40rpx;height:40rpx;margin-right:10rpx'></image>
+    <text>立即购买</text>
+    </view>
+  </button>
+</view>
 
-<view class='pay' bindtap='pay'>立即购买</view>
+<!-- <view class='pay' bindtap='pay'>立即购买</view> -->

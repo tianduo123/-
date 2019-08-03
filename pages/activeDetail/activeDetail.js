@@ -12,7 +12,29 @@ Page({
     h: '',
     m: '',
     s: '',
-    imgUrl:''
+    imgUrl:'',
+    isHasAuthorization:false
+  },
+  //用户授权
+  getUserInfo(e) {
+    console.log(e)
+    if (e.detail.userInfo) {
+      this.setData({
+        isHasAuthorization: true
+      })
+      app.globalData.userInfo = e.detail.userInfo
+      wx.request({
+        url: api.saveUserInfo(app.globalData.openid, e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl),
+        success: (res) => {
+          // console.log(res)
+          if (res.data.status == 1) {
+            console.log('授权成功')
+          } else {
+            console.log('授权失败')
+          }
+        }
+      })
+    }
   },
   //活动商家列表
   shopList(){
@@ -35,6 +57,9 @@ Page({
   //活动商家详情
   toShopDetail(e){
     console.log(e)
+    wx.navigateTo({
+      url: `../shopDetail/shopDetail?shop_id=${e.currentTarget.dataset.id}`,
+    })
   },
   //打开活动规则
   openRule() {
@@ -95,7 +120,8 @@ Page({
         console.log(res)
         this.setData({
           detail: res.data.datas,
-          endTime: res.data.datas.end_time.replace(/\-/g, '/')
+          endTime: res.data.datas.end_time.replace(/\-/g, '/'),
+          isLike: res.data.datas.is_collect
         })
         this.djs()
       }
@@ -112,7 +138,7 @@ Page({
         nickname: app.globalData.userInfo.nickName,
         headimage: app.globalData.userInfo.avatarUrl,
         ord_price: this.data.detail.price,
-        tuijian: ''
+        tuijian: app.globalData.shareUserId
       },
       success: res => {
         wx.showLoading({
@@ -166,12 +192,44 @@ Page({
       }
     })
   },
+  //收藏
+  like(){
+    console.log('收藏')
+    wx.request({
+      url: api.like(app.globalData.openid,this.data.id),
+      success:res=>{
+        console.log(res)
+        if(res.data.status==1){
+          wx.showToast({
+            title: '收藏成功',
+          })
+          this.setData({
+            isLike:1
+          })
+        }else if(res.data.status==0){
+          wx.showToast({
+            title: '取消收藏成功',
+          })
+          this.setData({
+            isLike:0
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     console.log(options)
     console.log(app.globalData.userInfo)
+    if(app.globalData.userInfo){
+      this.setData({
+        isHasAuthorization:true
+      })
+    }else{
+      console.log('用户未授权')
+    }
     this.setData({
       id: options.id,
       imgUrl: api.BASE_IMG
@@ -228,7 +286,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  // onShareAppMessage: function() {
 
-  }
+  // }
 })

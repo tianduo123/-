@@ -1,4 +1,6 @@
 // pages/aboutUs/aboutUs.js
+let app = getApp()
+let api = require('../../request/api.js')
 Page({
 
   /**
@@ -12,6 +14,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '推荐码生成中...',
+    })
+    wx.getStorage({
+      key: 'qrcode',
+      success:(res)=>{
+        console.log(res)
+        if(res.data){
+          this.setData({
+            qrcode:res.data
+          })
+        }
+      },
+    })
+    setTimeout(()=>{
+      if(this.data.qrcode){
+        console.log('缓存中存在推荐码')
+      }else{
+        console.log('缓存中没有推荐码')
+        wx.request({
+          url: api.makeCode(app.globalData.openid, app.globalData.userInfo.avatarUrl),
+          success: res => {
+            console.log(res)
+            if (res.data) {
+              this.setData({
+                qrcode: res.data
+              })
+              //将二维码存到缓存
+              wx.setStorage({
+                key: 'qrcode',
+                data: this.data.qrcode,
+              })
+            } else {
+              wx.showToast({
+                title: '推荐码生成失败，请稍后再试',
+                icon: 'none'
+              })
+            }
+          }
+        })
+      }
+
+      wx.hideLoading()
+    },1000)
 
   },
 
@@ -60,7 +106,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

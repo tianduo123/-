@@ -63,6 +63,16 @@ Page({
             icon: 'none'
           })
         } else {
+          //将商家id与活动id存入缓存
+          wx.setStorage({
+            key: 'shop_id',
+            data: res.data.datas.id
+          })
+          wx.setStorage({
+            key: 'active_id',
+            data: res.data.datas.activity_id,
+          })
+
           this.setData({
             shop_id:res.data.datas.id,
             active_id:res.data.datas.activity_id
@@ -121,6 +131,13 @@ Page({
               phone: '',
               code: ''
             })
+            //登录成功后将商家信息存入缓存，每次点击商家入口先判断有没有缓存
+              //有缓存 --> 直接跳转到商家订单页
+              //没有缓存 --> 跳转到商家登录页
+            wx.setStorage({
+              key: 'isLogin',
+              data: true,
+            })
           }
         })
       }, 1000)
@@ -178,7 +195,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  // onShareAppMessage: function() {
 
-  }
+  // }
 })

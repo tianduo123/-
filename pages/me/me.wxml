@@ -11,7 +11,7 @@
     <image src='/icon/money.svg' style='width:50rpx;height:50rpx'></image>
     <view class='moneyWrap'>
       <text>我的积分</text>
-      <text style='color:#FFCC00;margin-top:10rpx'>￥100.00</text>
+      <text style='color:#FFCC00;margin-top:10rpx'>￥{{jf}}</text>
     </view>
   </view>
   <view style='width:2rpx;height:80rpx;background:#ccc'></view>
@@ -28,7 +28,7 @@
       <view class='title'>积分规则</view>
     </view>
     <view class='rule_detail'>
-  
+
     </view>
   </view>
 </view>
@@ -96,4 +96,15 @@
       <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
     </view>
   </view>
+  <button open-type='contact' hover-class='none'>
+  <view class='myInfo_item'>
+    <view class='item_l'>
+      <image src='/icon/kefu.svg' style='width:40rpx;height:40rpx'></image>
+      <text style='margin-left:20rpx'>联系客服</text>
+    </view>
+    <view class='item_r'>
+      <image src='/icon/jt.svg' style='width:30rpx;height:30rpx'></image>
+    </view>
+  </view>
+  </button>
 </view>

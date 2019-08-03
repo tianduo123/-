@@ -1,0 +1,54 @@
+/* pages/shopDetail/shopDetail.wxss */
+page{
+  box-sizing: border-box;
+  padding-bottom: 100rpx
+}
+@import "/wxParse/wxParse.wxss";
+swiper{
+  width: 100%;
+  height: 400rpx;
+  margin-bottom: 20rpx
+}
+.shopInfo{
+  width: 100%;
+  height: 200rpx;
+  background: #eee;
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx
+}
+.info_l{
+  width: 140rpx;
+  height: 140rpx;
+}
+.info_r{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 28rpx
+}
+.phone{
+  display: flex;
+  align-items: center;
+}
+.video{
+  width: 100%;
+  height: 400rpx;
+  margin-bottom: 20rpx
+}
+.card{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #eee
+}
+.shopRule{
+  box-sizing: border-box;
+  padding: 20rpx;
+}

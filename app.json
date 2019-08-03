@@ -12,13 +12,16 @@
     "pages/myMoney/myMoney",
     "pages/activeDetail/activeDetail",
     "pages/orderDetail/orderDetail",
-    "pages/orderDetail2/orderDetail2"
+    "pages/orderDetail2/orderDetail2",
+    "pages/qrcode/qrcode",
+    "pages/shopDetail/shopDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFCC00",
     "navigationBarTitleText": "无限体验",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#707070",

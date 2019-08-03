@@ -8,6 +8,10 @@ function getOpenid(a) {
 function saveUserInfo(a, b, c) {
   return BASE_API + `user/saveuser?openid=${a}&nickname=${b}&headimage=${c}`
 }
+//首页轮播（推荐活动）
+function tuijian(){
+  return BASE_API + `article/tuijian_activity`
+}
 //活动列表
 function activeList(a,b,c){
   return BASE_API + `article/article_list?page=${a}&size=${b}&address=${c}`
@@ -20,11 +24,19 @@ function activeDetail(a,b){
 function comment(){
   return BASE_API + 'comment/comment'
 }
+//收藏活动
+function like(a,b){
+  return BASE_API + `article/article_collect?openid=${a}&activity_id=${b}`
+}
 //我的收藏列表
 function myLike(a,b,c){
   return BASE_API + `article/article_collectList?openid=${a}&page=${b}&size=${c}`
 }
-//佣金获取记录
+//我的积分
+function myJf(a){
+  return BASE_API + `user/sum_yongjin?openid=${a}`
+}
+//积分获取记录
 function getRecord(a,b,c){
   return BASE_API + `user/my_yongyin?openid=${a}&page=${b}&size=${c}`
 }
@@ -68,12 +80,18 @@ function orderDetail(a){
 function shopList(a){
   return BASE_API + `shop/shop_list?activity_id=${a}`
 }
+//生成推荐二维码
+function makeCode(a,b){
+  return BASE_API + `share/getCode?openid=${a}&headimg=${b}`
+}
 module.exports = {
   BASE_IMG,
   getOpenid,
   saveUserInfo,
+  tuijian,
   activeList,
   comment,
+  like,
   myLike,
   getRecord,
   outRecord,
@@ -86,5 +104,7 @@ module.exports = {
   pay,
   orderList,
   orderDetail,
-  shopList
+  shopList,
+  makeCode,
+  myJf
 }

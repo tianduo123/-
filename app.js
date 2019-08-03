@@ -43,6 +43,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    shareUserId:'onKBd5VnmMkxYzbqorSG0YlEDEz8'
   }
 })
