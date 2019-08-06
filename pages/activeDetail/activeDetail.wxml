@@ -48,72 +48,16 @@
   <!-- 佣金排行 -->
   <view class='rankList'>
     <view class='rankTitle'>
-      <text>佣金排行</text>
+      <text>积分排行</text>
       <image src='/icon/question.svg' style='width:30rpx;height:30rpx;margin-left:10rpx;line-height:70rpx' bindtap='question'></image>
     </view>
-    <view class='rankItem'>
+    <view class='rankItem' wx:for='{{rankList}}' wx:key>
       <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
+        <text style='color:#FF3300'>{{index+1}}</text>
+        <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
+        <text style='color:#fff'>{{item.nickname}}</text>
       </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
-    </view>
-    <view class='rankItem'>
-      <view class='userInfo'>
-        <text style='color:#FF3300'>1</text>
-        <image src='/icon/01.jpeg' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>用户微信名</text>
-      </view>
-      <view class='price'>1300元</view>
+      <view class='price'>{{item.sum}}分</view>
     </view>
   </view>
 </view>

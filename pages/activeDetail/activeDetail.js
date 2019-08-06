@@ -13,7 +13,7 @@ Page({
     m: '',
     s: '',
     imgUrl:'',
-    isHasAuthorization:false
+    isHasAuthorization:false,
   },
   //用户授权
   getUserInfo(e) {
@@ -71,6 +71,23 @@ Page({
   closeRule() {
     this.setData({
       isShow: false
+    })
+  },
+  //积分排行
+  rankList(){
+    wx.request({
+      url: api.rankList(),
+      success:res=>{
+        console.log('积分排行榜',res)
+        if(res.data.status==1){
+          this.setData({
+            rankList: res.data.info
+          })
+        }else{
+          console.log('获取排行信息失败')
+        }
+   
+      }
     })
   },
   //排行榜疑问
@@ -138,7 +155,7 @@ Page({
         nickname: app.globalData.userInfo.nickName,
         headimage: app.globalData.userInfo.avatarUrl,
         ord_price: this.data.detail.price,
-        tuijian: app.globalData.shareUserId
+        tuijian: this.data.tuijian
       },
       success: res => {
         wx.showLoading({
@@ -176,6 +193,14 @@ Page({
             wx.hideLoading()
             wx.showToast({
               title: '该活动还未开始哦',
+              icon: 'none'
+            })
+          }, 1000)
+        } else if(res.data.status == 6){
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.showToast({
+              title: '该活动您已参加过，不能重复参加哦',
               icon: 'none'
             })
           }, 1000)
@@ -223,6 +248,7 @@ Page({
   onLoad: function(options) {
     console.log(options)
     console.log(app.globalData.userInfo)
+    //判断用户是否授权
     if(app.globalData.userInfo){
       this.setData({
         isHasAuthorization:true
@@ -230,11 +256,28 @@ Page({
     }else{
       console.log('用户未授权')
     }
+    //判断有没有推荐人
+    wx.getStorage({
+      key: 'tuijianid',
+      success:(res)=>{
+        console.log('有推荐人',res)
+        this.setData({
+          tuijian:res.data
+        })
+      },
+      fail:()=>{
+        console.log('没有推荐人')
+        this.setData({
+          tuijian:''
+        })
+      }
+    })
     this.setData({
       id: options.id,
       imgUrl: api.BASE_IMG
     })
     this.shopList()
+    this.rankList()
   },
 
   /**

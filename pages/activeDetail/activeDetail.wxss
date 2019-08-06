@@ -69,7 +69,8 @@ page{
   border-radius: 20rpx;
   margin:  0 auto 30rpx;
   background: #CCFFFF;
-
+  box-sizing: border-box;
+  padding: 20rpx;
 }
 .rankList{
   width: 80%;
@@ -115,10 +116,6 @@ page{
   flex-direction: column;
   justify-content: space-around
 }
-.shopList{
-  box-sizing: border-box;
-  padding: 20rpx;
-}
 .swiper{
   width: 100%;
   height: 100%;
@@ -161,10 +158,11 @@ swiper-item{
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
-  font-size: 28rpx
+  font-size: 28rpx;
+  justify-content: space-between
 }
 .userInfo{
-  width: 80%;
+  width: 70%;
   display: flex;
   align-items: center
 }
@@ -174,7 +172,7 @@ swiper-item{
   white-space: nowrap
 }
 .price{
-  width: 20%;
+  /* width: 20%; */
   display: flex;
   align-items: center;
   justify-content: space-around;

@@ -50,6 +50,24 @@ Page({
       }
     })
   },
+  //活动商家列表
+  // shopList() {
+  //   wx.request({
+  //     url: api.shopList(this.data.id),
+  //     success: res => {
+  //       console.log(res)
+  //       var arr = res.data.info
+  //       var newArr = []
+  //       for (var i = 0; i < arr.length; i += 8) {
+  //         newArr.push(arr.slice(i, i + 8))
+  //       }
+  //       console.log(newArr)
+  //       this.setData({
+  //         newArr: newArr
+  //       })
+  //     }
+  //   })
+  // },
   //订单详情
   orderDetail(){
     wx.request({
@@ -58,6 +76,15 @@ Page({
         console.log(res)
         this.setData({
           orderDetail:res.data.datas
+        })
+        var arr = res.data.shop
+        var newArr = []
+        for (var i = 0; i < arr.length; i += 8) {
+          newArr.push(arr.slice(i, i + 8))
+        }
+        console.log(newArr)
+        this.setData({
+          newArr: newArr
         })
       }
     })
@@ -69,9 +96,11 @@ Page({
     // console.log(options)
     this.setData({
       id: options.id,
-      orderid: options.orderId
+      orderid: options.orderId,
+      imgUrl:api.BASE_IMG
     })
     this.orderDetail()
+    // this.shopList()
   },
 
   /**

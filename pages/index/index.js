@@ -81,7 +81,12 @@ Page({
     if (options.scene){
       console.log('用户通过二维码进入小程序')
       var scene = decodeURIComponent(options.scene);
-      app.globalData.shareUserId = scene
+      // app.globalData.shareUserId = scene
+      //将推荐人id存入缓存
+      wx.setStorage({
+        key: 'tuijianid',
+        data: scene,
+      })
     }else{
       console.log('没有二维码')
     }

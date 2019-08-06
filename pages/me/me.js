@@ -49,6 +49,10 @@ Page({
       })
     } else {
       console.log('用户未授权')
+      wx.showToast({
+        title: '登录后才能查看哦',
+        icon:'none'
+      })
     }
 
   },
@@ -78,6 +82,10 @@ Page({
       })
     }else{
       console.log('用户未授权')
+      wx.showToast({
+        title: '登录后才能查看哦',
+        icon: 'none'
+      })
     }
   },
   //关于积分
@@ -88,6 +96,10 @@ Page({
       })
     }else{
       console.log('用户未授权')
+      wx.showToast({
+        title: '登录后才能查看哦',
+        icon: 'none'
+      })
     }
   },
   //关闭积分
@@ -96,32 +108,6 @@ Page({
       isShow:false
     })
   },
-  //佣金提现
-  // getMoney() {
-  //   if (this.hasAuthorization()) {
-  //     wx.showModal({
-  //       title: '佣金提现',
-  //       content: '确定将佣金全部提现吗?',
-  //       success: (res) => {
-  //         if (res.confirm) {
-  //           wx.showLoading({
-  //             title: '提现请求中',
-  //           })
-  //           setTimeout(() => {
-  //             wx.hideLoading()
-  //             wx.showToast({
-  //               title: '提现成功,预计2小时到账',
-  //               icon: 'none'
-  //             })
-  //           }, 1000)
-  //         } else {
-  //           console.log('取消提现')
-  //         }
-  //       }
-  //     })
-  //   } else {
-  //     console.log('用户未授权')
-  //   }
 
   // },
   //我的收藏
@@ -132,11 +118,14 @@ Page({
       })
     }else{
       console.log('用户未授权')
+      wx.showToast({
+        title: '登录后才能查看哦',
+        icon: 'none'
+      })
     }
   },
   //商家入口
   store(){
-    if(this.hasAuthorization()){
       /*
         通过缓存判断该商家有没有登录过
           --> 登录过直接跳转到商家订单页
@@ -175,10 +164,6 @@ Page({
           })
         }
       })
-
-    }else{
-      console.log('用户未授权')
-    }
   },
   //投诉反馈
   comment(){
@@ -188,6 +173,10 @@ Page({
       })
     }else{
       console.log('用户未授权')
+      wx.showToast({
+        title: '登录后才能查看哦',
+        icon: 'none'
+      })
     }
   },
   //我的推荐码
@@ -198,6 +187,10 @@ Page({
       })
     }else{
       console.log('用户未授权')
+      wx.showToast({
+        title: '登录后才能查看哦',
+        icon: 'none'
+      })
     }
   },
   /**
@@ -246,7 +239,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    wx.showLoading({
+      title: '正在刷新',
+    })
+    setTimeout(()=>{
+      this.myJf()
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    },1000)
   },
 
   /**

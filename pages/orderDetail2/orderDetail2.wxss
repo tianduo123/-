@@ -62,3 +62,40 @@ page{
   line-height: 60rpx;
   font-size: 28rpx
 }
+
+.lose{
+  position: absolute;
+  top: 0;
+  left: 0
+}
+.shopList{
+  width: 100%;
+  height: 400rpx;
+  border-radius: 20rpx;
+  margin:  0 auto 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.swiper{
+  width: 100%;
+  height: 100%;
+}
+swiper-item{
+  font-size: 28rpx;
+  color: #666
+}
+.shopItem{
+  width: 25%;
+  height: 50%;
+  text-align: center;
+  display: inline-block;
+  position: relative
+}
+.shopItem>text{
+  width: 90%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}

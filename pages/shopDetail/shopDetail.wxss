@@ -52,3 +52,15 @@ swiper{
   box-sizing: border-box;
   padding: 20rpx;
 }
+.map{
+  width: 90%;
+  height: 400rpx;
+  margin: 0 auto;
+}
+.address{
+  margin: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color:#ccc;
+}

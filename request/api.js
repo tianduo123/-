@@ -16,6 +16,10 @@ function tuijian(){
 function activeList(a,b,c){
   return BASE_API + `article/article_list?page=${a}&size=${b}&address=${c}`
 }
+//商家详情
+function shopDetail(a){
+  return BASE_API + `shop/shop_detail?shopid=${a}`
+}
 //活动详情
 function activeDetail(a,b){
   return BASE_API + `article/article_detail?id=${a}&openid=${b}`
@@ -40,10 +44,14 @@ function myJf(a){
 function getRecord(a,b,c){
   return BASE_API + `user/my_yongyin?openid=${a}&page=${b}&size=${c}`
 }
-//佣金提现记录
-function outRecord(a,b,c){
-  return BASE_API + `user/tixian_list?openid=${a}&page=${b}&size=${c}`
+//积分排行榜
+function rankList(){
+  return BASE_API + `user/yongjin_paihang`
 }
+// //佣金提现记录
+// function outRecord(a,b,c){
+//   return BASE_API + `user/tixian_list?openid=${a}&page=${b}&size=${c}`
+// }
 //商家登录
 function storeLogin(){
   return BASE_API + 'shop/login?phone'
@@ -84,6 +92,7 @@ function shopList(a){
 function makeCode(a,b){
   return BASE_API + `share/getCode?openid=${a}&headimg=${b}`
 }
+
 module.exports = {
   BASE_IMG,
   getOpenid,
@@ -94,7 +103,8 @@ module.exports = {
   like,
   myLike,
   getRecord,
-  outRecord,
+  // outRecord,
+  rankList,
   storeLogin,
   getCode,
   storeOrder,
@@ -106,5 +116,6 @@ module.exports = {
   orderDetail,
   shopList,
   makeCode,
-  myJf
+  myJf,
+  shopDetail
 }

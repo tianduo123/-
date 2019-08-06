@@ -44,6 +44,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    shareUserId:'onKBd5VnmMkxYzbqorSG0YlEDEz8'
+    // shareUserId:''
   }
 })

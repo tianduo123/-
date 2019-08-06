@@ -6,6 +6,22 @@
   <view class='cat_time' wx:if='{{isEnd}}'>活动已结束</view>
   <view class='cat_time' wx:else>活动倒计时{{d}}天{{h}}小时{{m}}分钟{{s}}秒</view>
 </view>
+<view class='shopList'>
+  <swiper autoplay class='swiper'>
+    <swiper-item wx:for='{{newArr}}' wx:key>
+      <view class='shopItem' wx:for='{{item}}' wx:key data-id='{{item.id}}' bindtap='toShopDetail'>
+        <!-- 已核销蒙层 -->
+        <view class="lose" wx:if='{{item.is_confirm==1}}'>
+          <image src="/icon/lose.svg" style="width:100rpx;height:100rpx"></image>
+        </view>
+        <view style='display:flex;height:100%;flex-direction:column;justify-content:space-around;align-items:center'>
+          <image src='{{imgUrl+item.logo}}' style='width:60rpx;height:60rpx;border-radius:50%'></image>
+          <text style=' width: 90%;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap'>{{item.name}}</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
 <view class='order'>
   <view class='order_item'>
     <view>订单金额</view>
