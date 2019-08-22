@@ -35,7 +35,7 @@ page{
   color: #CC3300
 }
 .getRecord{
-  height: 400rpx;
+  /* height: 400rpx; */
   box-sizing: border-box;
   padding: 20rpx
 }

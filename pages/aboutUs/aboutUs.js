@@ -14,9 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '推荐码生成中...',
-    })
     wx.getStorage({
       key: 'qrcode',
       success:(res)=>{
@@ -32,12 +29,16 @@ Page({
       if(this.data.qrcode){
         console.log('缓存中存在推荐码')
       }else{
+        wx.showLoading({
+          title: '推荐码生成中...',
+        })
         console.log('缓存中没有推荐码')
         wx.request({
           url: api.makeCode(app.globalData.openid, app.globalData.userInfo.avatarUrl),
           success: res => {
             console.log(res)
-            if (res.data) {
+            if (res.statusCode==200) {
+              wx.hideLoading()
               this.setData({
                 qrcode: res.data
               })
@@ -56,7 +57,6 @@ Page({
         })
       }
 
-      wx.hideLoading()
     },1000)
 
   },

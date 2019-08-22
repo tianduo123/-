@@ -12,8 +12,8 @@ Page({
     h: '',
     m: '',
     s: '',
-    imgUrl:'',
-    isHasAuthorization:false,
+    imgUrl: '',
+    isHasAuthorization: false,
   },
   //用户授权
   getUserInfo(e) {
@@ -37,28 +37,36 @@ Page({
     }
   },
   //活动商家列表
-  shopList(){
+  shopList() {
     wx.request({
       url: api.shopList(this.data.id),
-      success:res=>{
+      success: res => {
         console.log(res)
         var arr = res.data.info
         var newArr = []
-        for(var i=0;i<arr.length;i+=8){
-          newArr.push(arr.slice(i,i+8))
+        for (var i = 0; i < arr.length; i += 8) {
+          newArr.push(arr.slice(i, i + 8))
         }
         console.log(newArr)
         this.setData({
-          newArr:newArr
+          newArr: newArr,
+          tjArr: newArr[0]
         })
       }
     })
   },
   //活动商家详情
-  toShopDetail(e){
+  toShopDetail(e) {
     console.log(e)
     wx.navigateTo({
       url: `../shopDetail/shopDetail?shop_id=${e.currentTarget.dataset.id}`,
+    })
+  },
+  //净水器活动
+  toWater() {
+    console.log('去净水器详情')
+    wx.navigateTo({
+      url: '../youhuiDetail/youhuiDetail?id=7',
     })
   },
   //打开活动规则
@@ -74,19 +82,19 @@ Page({
     })
   },
   //积分排行
-  rankList(){
+  rankList() {
     wx.request({
       url: api.rankList(),
-      success:res=>{
-        console.log('积分排行榜',res)
-        if(res.data.status==1){
+      success: res => {
+        console.log('积分排行榜', res)
+        if (res.data.status == 1) {
           this.setData({
             rankList: res.data.info
           })
-        }else{
+        } else {
           console.log('获取排行信息失败')
         }
-   
+
       }
     })
   },
@@ -114,12 +122,12 @@ Page({
           m,
           s
         })
-        if(djs<0){
+        if (djs < 0) {
           //活动已结束
           console.log('清除定时器')
           clearInterval(this.data.intervalId)
           this.setData({
-            isEnd:true,
+            isEnd: true,
             d: '',
             h: '',
             m: '',
@@ -138,7 +146,8 @@ Page({
         this.setData({
           detail: res.data.datas,
           endTime: res.data.datas.end_time.replace(/\-/g, '/'),
-          isLike: res.data.datas.is_collect
+          isLike: res.data.datas.is_collect,
+          danmuList: res.data.success
         })
         this.djs()
       }
@@ -169,8 +178,15 @@ Page({
               url: `../orderDetail/orderDetail?id=${res.data.datas.activity_id}&time=${res.data.datas.add_time}&bh=${res.data.datas.ord_bh}`,
             })
           }, 1000)
-        }
-        else if (res.data.status == 0 || res.data.status == 2) {
+        } else if (res.data.status == 0) {
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.showToast({
+              title: '后台发生了一个未知错误',
+              icon: 'none'
+            })
+          }, 1000)
+        } else if (res.data.status == 2) {
           setTimeout(() => {
             wx.hideLoading()
             wx.showToast({
@@ -178,8 +194,7 @@ Page({
               icon: 'none'
             })
           }, 1000)
-        }
-        else if (res.data.status == 3) {
+        } else if (res.data.status == 3) {
           setTimeout(() => {
             wx.hideLoading()
             wx.showToast({
@@ -187,8 +202,7 @@ Page({
               icon: 'none'
             })
           }, 1000)
-        }
-        else if (res.data.status == 4) {
+        } else if (res.data.status == 4) {
           setTimeout(() => {
             wx.hideLoading()
             wx.showToast({
@@ -196,7 +210,7 @@ Page({
               icon: 'none'
             })
           }, 1000)
-        } else if(res.data.status == 6){
+        } else if (res.data.status == 6) {
           setTimeout(() => {
             wx.hideLoading()
             wx.showToast({
@@ -204,12 +218,27 @@ Page({
               icon: 'none'
             })
           }, 1000)
-        }
-        else {
+        } else if (res.data.status == 5) {
           setTimeout(() => {
             wx.hideLoading()
             wx.showToast({
               title: '活动已结束',
+              icon: 'none'
+            })
+          }, 1000)
+        } else if (res.data.status == 7) {
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.showToast({
+              title: '系统繁忙，请稍后再试',
+              icon: 'none'
+            })
+          }, 1000)
+        } else {
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.showToast({
+              title: '程序升级中,请稍后再试',
               icon: 'none'
             })
           }, 1000)
@@ -218,25 +247,25 @@ Page({
     })
   },
   //收藏
-  like(){
+  like() {
     console.log('收藏')
     wx.request({
-      url: api.like(app.globalData.openid,this.data.id),
-      success:res=>{
+      url: api.like(app.globalData.openid, this.data.id),
+      success: res => {
         console.log(res)
-        if(res.data.status==1){
+        if (res.data.status == 1) {
           wx.showToast({
             title: '收藏成功',
           })
           this.setData({
-            isLike:1
+            isLike: 1
           })
-        }else if(res.data.status==0){
+        } else if (res.data.status == 0) {
           wx.showToast({
             title: '取消收藏成功',
           })
           this.setData({
-            isLike:0
+            isLike: 0
           })
         }
       }
@@ -249,26 +278,26 @@ Page({
     console.log(options)
     console.log(app.globalData.userInfo)
     //判断用户是否授权
-    if(app.globalData.userInfo){
+    if (app.globalData.userInfo) {
       this.setData({
-        isHasAuthorization:true
+        isHasAuthorization: true
       })
-    }else{
+    } else {
       console.log('用户未授权')
     }
     //判断有没有推荐人
     wx.getStorage({
       key: 'tuijianid',
-      success:(res)=>{
-        console.log('有推荐人',res)
+      success: (res) => {
+        console.log('有推荐人', res)
         this.setData({
-          tuijian:res.data
+          tuijian: res.data
         })
       },
-      fail:()=>{
+      fail: () => {
         console.log('没有推荐人')
         this.setData({
-          tuijian:''
+          tuijian: ''
         })
       }
     })
@@ -316,6 +345,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    //刷新活动详情、商家详情、积分榜
+    wx.showLoading({
+      title: '正在刷新',
+    })
+    setTimeout(() => {
+      this.avtiveDetail() //刷新活动详情
+      this.shopList() //刷新合作商家列表
+      this.rankList() //刷新积分排行榜
+      wx.hideLoading() //隐藏Loading框
+      wx.stopPullDownRefresh() //停止下拉效果
+    }, 1000)
 
   },
 

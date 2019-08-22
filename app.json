@@ -14,7 +14,8 @@
     "pages/orderDetail/orderDetail",
     "pages/orderDetail2/orderDetail2",
     "pages/qrcode/qrcode",
-    "pages/shopDetail/shopDetail"
+    "pages/shopDetail/shopDetail",
+    "pages/youhuiDetail/youhuiDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,9 +43,9 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "permission":{
-      "scope.userLocation": {
-        "desc": "你的位置信息将用于小程序位置接口的效果展示" 
-      }
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   }
 }

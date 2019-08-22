@@ -1,7 +1,7 @@
 <!--轮播图-->
 <swiper indicator-dots autoplay indicator-active-color='#FFCC00'>
-  <swiper-item wx:for='{{tjList}}' wx:key>
-    <image src='{{imgUrl+item.image}}' style='width:100%;height:100%' bindtap='join' data-id='{{item.id}}'></image>
+  <swiper-item wx:for='{{youhuiList}}' wx:key>
+    <image src='{{imgUrl+item.image}}' style='width:100%;height:100%' bindtap='join2' data-id='{{item.id}}'></image>
   </swiper-item>
 </swiper>
 <!-- 省市区三级联动 -->

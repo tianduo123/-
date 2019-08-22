@@ -136,25 +136,8 @@ Page({
         success:(res)=>{
           console.log(res)
             console.log('跳转到商家订单页')
-            wx.getStorage({
-              key: 'shop_id',
-              success:(res)=>{
-                console.log(res)
-                this.setData({
-                  shop_id:res.data
-                })
-              },
-            })
-            wx.getStorage({
-              key: 'active_id',
-              success:(res)=>{
-                this.setData({
-                  active_id:res.data
-                })
-              },
-            })
             wx.navigateTo({
-              url: `../store/store?shopId=${this.data.shop_id}&activeId=${this.data.active_id}`,
+              url: `../store/store`,
             })
         },
         fail:res=>{

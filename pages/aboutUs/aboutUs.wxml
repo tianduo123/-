@@ -3,6 +3,7 @@
   <image src='{{qrcode}}' show-menu-by-longpress='true'></image>
 </view>
 <view class='info'>
-  *长按此二维码推荐给好友叭
+  *长按此二维码保存或者截图推荐给好友吧
 </view>
+<view style="text-align:center;font-size:28rpx;color: #FF0000;width:100%">(苹果手机请截图保存推荐码哦)</view>
 

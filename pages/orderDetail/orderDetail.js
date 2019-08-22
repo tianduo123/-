@@ -127,6 +127,50 @@ Page({
       }
     })
   },
+  //取消支付
+  cancelPay(){
+    wx.showModal({
+      title: '取消订单',
+      content: '是否取消该订单',
+      success:res=>{
+        if(res.confirm){
+          //用户确认，取消订单
+          wx.showLoading({
+            title: '取消中',
+          })
+          setTimeout(()=>{
+            wx.request({
+              url: api.cancelOrder(this.data.bh),
+              success:res=>{
+                console.log(res)
+                if(res.data.status==1){
+                  wx.showToast({
+                    title: '取消成功',
+                  })
+                  wx.navigateBack({
+                    delta:1,
+                    success:res=>{
+                      console.log('跳转成功',res)
+                    },
+                    fail:res=>{
+                      console.log('跳转失败',res)
+                    }
+                  })
+                }else{
+                  wx.showToast({
+                    title: '取消失败,请稍后再试',
+                    icon:'none'
+                  })
+                }
+              }
+            })
+          },1000)
+        }else{
+          console.log('用户取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

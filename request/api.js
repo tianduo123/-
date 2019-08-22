@@ -9,8 +9,12 @@ function saveUserInfo(a, b, c) {
   return BASE_API + `user/saveuser?openid=${a}&nickname=${b}&headimage=${c}`
 }
 //首页轮播（推荐活动）
-function tuijian(){
-  return BASE_API + `article/tuijian_activity`
+// function tuijian(){
+//   return BASE_API + `article/tuijian_activity`
+// }
+//首页轮播（优惠活动）
+function youhui(){
+  return BASE_API + `discount/article_list`
 }
 //活动列表
 function activeList(a,b,c){
@@ -48,10 +52,10 @@ function getRecord(a,b,c){
 function rankList(){
   return BASE_API + `user/yongjin_paihang`
 }
-// //佣金提现记录
-// function outRecord(a,b,c){
-//   return BASE_API + `user/tixian_list?openid=${a}&page=${b}&size=${c}`
-// }
+//积分提现记录
+function outRecord(a,b,c){
+  return BASE_API + `user/tixian_list?openid=${a}&page=${b}&size=${c}`
+}
 //商家登录
 function storeLogin(){
   return BASE_API + 'shop/login?phone'
@@ -60,9 +64,9 @@ function storeLogin(){
 function getCode(){
   return BASE_API + 'shop/smsSend'
 }
-//商家核销订单
-function storeOrder(a,b,c,d){
-  return BASE_API + `shop/order_shop?activity_id=${a}&shop_id=${b}&page=${c}&size=${d}`
+//商家核销订单列表
+function storeOrder(a,b,c,d,e){
+  return BASE_API + `shop/order_shop?activity_id=${a}&shop_id=${b}&page=${c}&size=${d}&key=${e}`
 }
 //商家核销函数
 function hexiao(a,b,c){
@@ -75,6 +79,10 @@ function makeOrder(a,b,c,d,e,f,g){
 //支付
 function pay(a,b,c){
   return BASE_API + `pay/pay?ord_bh=${a}&openid=${b}&ord_price=${c}`
+}
+//取消订单
+function cancelOrder(a){
+  return BASE_API + `order/order_cancel?ord_bh=${a}`
 }
 //订单列表
 function orderList(a,b,c,d){
@@ -97,13 +105,14 @@ module.exports = {
   BASE_IMG,
   getOpenid,
   saveUserInfo,
-  tuijian,
+  // tuijian,
+  youhui,
   activeList,
   comment,
   like,
   myLike,
   getRecord,
-  // outRecord,
+  outRecord,
   rankList,
   storeLogin,
   getCode,
@@ -111,6 +120,7 @@ module.exports = {
   hexiao,
   activeDetail,
   makeOrder,
+  cancelOrder,
   pay,
   orderList,
   orderDetail,

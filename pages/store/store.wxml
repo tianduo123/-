@@ -4,8 +4,12 @@
   <view class='line'></view>
   <view class='{{isSelect==1?"item2":"item"}}' data-status='1' bindtap='select'>已核销订单</view>
 </view>
+<!-- 搜索订单 -->
+<view class="search">
+  <input placeholder="请输入用户昵称/订单号后4位" value="{{userval}}" bindinput="getUserval"></input>
+  <view bindtap="search">搜索</view>
+</view>
 <view style='width:100%;height:20rpx;background:#eee'></view>
-
 <!-- 未核销订单 -->
 <view class='notComplete' wx:if='{{isSelect==0}}' wx:for='{{notComplete}}' wx:key>
   <view class='not_l'>
@@ -13,7 +17,7 @@
       <view>用户信息：</view>
       <view style='display:flex;align-items:center;width:70%'>
         <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;border:1px solid #6699FF;margin-right:10rpx'></image>
-        <text class='text'>{{item.nickName}}</text>
+        <text class='text'>{{item.nickname}}</text>
       </view>
     </view>
     <view class='orderNumber'>
@@ -51,7 +55,7 @@
   </view>
 </view>
 <!-- 该商家暂无订单 -->
-<view class='empty' wx:if='{{!hasOrder}}'>
+<!-- <view class='empty' wx:if='{{!hasOrder}}'>
   <image src='/icon/empty2.svg' style='width:100rpx;height:100rpx;margin:30rpx'></image>
   <view>暂无相关订单</view>
-</view>
+</view> -->

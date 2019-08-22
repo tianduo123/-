@@ -62,3 +62,14 @@ page{
   line-height: 60rpx;
   font-size: 28rpx
 }
+.cancelPay{
+  width: 150rpx;
+  height: 60rpx;
+  background: #666;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  margin-right: 20rpx
+}

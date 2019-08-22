@@ -1,13 +1,13 @@
 <!--pages/myMoney/myMoney.wxml-->
 <wxs src='../myMoney/myMoney.wxs' module='hotel'></wxs>
-<!-- <view class='title'>
+<view class='title'>
   <view class='{{isSelect==0?"item2":"item"}}' data-status='0' bindtap='select'>积分获取记录</view>
   <view class='line'></view>
   <view class='{{isSelect==1?"item2":"item"}}' data-status='1' bindtap='select'>积分提现记录</view>
-</view> -->
+</view>
 <view style='width:100%;height:20rpx;background:#eee'></view>
 <!-- 佣金获取记录表 -->
-<view class='getRecord'  wx:if='{{getRecord}}'>
+<view class='getRecord'  wx:if='{{isSelect==0}}'>
   <view class='record_item' wx:for='{{getRecord}}' wx:key>
     <view class='userInfo'>
       <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;margin-right:10rpx;'></image>
@@ -17,17 +17,20 @@
     <view class='time'>{{hotel.Sub(item.add_time)[0]}}</view>
   </view>
 </view>
-<view class='empty' wx:else>
-  <image src='/icon/empty2.svg' style='width:150rpx;height:150rpx;margin-bottom:30rpx'></image>
-  <view>暂无积分</view>
-</view>
+
 <!-- 佣金提现记录表 -->
-<!-- <view class='getRecord' wx:if='{{isSelect==1}}'>
+<view class='getRecord' wx:if='{{isSelect==1}}'>
   <view class='record_item' wx:for='{{outRecord}}' wx:key>
     <view class='userInfo'>
       {{hotel.Sub(item.add_time)[0]}}
     </view>
-    <view class='price'>+ {{item.money}}</view>
-    <view class='time' style='color:#FFCC00'>{{item.status==0?"提现中":"提现成功"}}</view>
+    <view class='price'>- {{item.money}}</view>
+    <view class='time' style='color:#FFCC00'>提现成功</view>
   </view>
-</view> -->
+</view>
+
+<!-- 当记录为空时显示 -->
+<view class='empty' wx:if='{{isEmpty}}'>
+  <image src='/icon/empty2.svg' style='width:150rpx;height:150rpx;margin-bottom:30rpx'></image>
+  <view>暂无积分</view>
+</view>

@@ -20,7 +20,9 @@ Page({
             shopDetail: res.data.info,
             shopLon: res.data.info.jingweidu.split(',')[1],
             shopLat:res.data.info.jingweidu.split(',')[0],
+            banner: JSON.parse(res.data.info.turn_image)
           })
+          console.log(this.data.banner)
           this.setData({
             markers: [
               {

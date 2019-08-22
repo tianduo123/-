@@ -53,13 +53,25 @@ Page({
     })
   },
   //推荐活动轮播
-  tuijian(){
+  // tuijian(){
+  //   wx.request({
+  //     url: api.tuijian(),
+  //     success:res=>{
+  //       console.log(res)
+  //       this.setData({
+  //         tjList:res.data.info
+  //       })
+  //     }
+  //   })
+  // },
+  //轮播图
+  youhui(){
     wx.request({
-      url: api.tuijian(),
+      url: api.youhui(),
       success:res=>{
         console.log(res)
         this.setData({
-          tjList:res.data.info
+          youhuiList:res.data.datas
         })
       }
     })
@@ -69,6 +81,11 @@ Page({
       wx.navigateTo({
         url: `../activeDetail/activeDetail?id=${e.currentTarget.dataset.id}`,
       })
+  },
+  join2(e) {
+    wx.navigateTo({
+      url: `../youhuiDetail/youhuiDetail?id=${e.currentTarget.dataset.id}`,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -94,7 +111,8 @@ Page({
       imgUrl:api.BASE_IMG
     })
     this.getActiveList()
-    this.tuijian()
+    // this.tuijian()
+    this.youhui()
   },
 
   /**
@@ -136,6 +154,7 @@ Page({
       success:res=>{
         setTimeout(()=>{
           this.getActiveList()
+          // this.tuijian()
           wx.hideLoading()
           wx.stopPullDownRefresh()
         },1000)

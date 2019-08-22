@@ -28,5 +28,6 @@
   </view>
 </view>
 <view class='payWrap'>
+  <view class="cancelPay" bindtap="cancelPay">取消订单</view>
   <view class='pay' bindtap='pay'>立即支付</view>
 </view>

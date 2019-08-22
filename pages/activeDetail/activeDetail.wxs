@@ -1,0 +1,10 @@
+var time = function() {
+  return Math.floor(Math.random() * (5 - 0) + 0)
+}
+var top = function() {
+  return Math.floor(Math.random() * (500 - 0) + 0)
+}
+module.exports = {
+  Time: time,
+  Top: top
+}

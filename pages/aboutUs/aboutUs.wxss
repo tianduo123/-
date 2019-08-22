@@ -20,5 +20,6 @@
   width: 100%;
   text-align: center;
   font-size: 28rpx;
-  color: #FF0000
+  color: #FF0000;
+  margin-bottom: 10rpx
 }

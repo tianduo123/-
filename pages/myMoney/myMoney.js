@@ -12,47 +12,67 @@ Page({
     size: 100
   },
   //选择分类
-  // select(e) {
-  //   this.setData({
-  //     isSelect: e.currentTarget.dataset.status
-  //   })
-  //   wx.showLoading({
-  //     title: '查询中',
-  //   })
-  //   setTimeout(()=>{
-  //     if (this.data.isSelect == 0) {
-  //       this.getRecord()
-  //       wx.hideLoading()
-  //     } else if (this.data.isSelect == 1) {
-  //       this.outRecord()
-  //       wx.hideLoading()
-  //     }
-  //   }, 1000)
-  // },
+  select(e) {
+    this.setData({
+      isSelect: e.currentTarget.dataset.status
+    })
+    wx.showLoading({
+      title: '查询中',
+    })
+    setTimeout(()=>{
+      if (this.data.isSelect == 0) {
+        this.getRecord()
+        wx.hideLoading()
+      } else if (this.data.isSelect == 1) {
+        this.outRecord()
+        wx.hideLoading()
+      }
+    }, 1000)
+  },
   //佣金获取记录
   getRecord() {
     wx.request({
       url: api.getRecord(app.globalData.openid, this.data.page, this.data.size),
       success: res => {
         console.log('佣金获取记录',res)
-        this.setData({
-          getRecord: res.data.info
-        })
+        if(res.data.status==1){
+          console.log('获取成功')
+          this.setData({
+            getRecord: res.data.info,
+            isEmpty:false
+          })
+        }else{
+          console.log('获取失败')
+          this.setData({
+            isEmpty:true
+          })
+        }
+
       }
     })
   },
-  //佣金提现记录
-  // outRecord() {
-  //   wx.request({
-  //     url: api.outRecord(app.globalData.openid, this.data.page, this.data.size),
-  //     success: res => {
-  //       console.log(res)
-  //       this.setData({
-  //         outRecord: res.data.info
-  //       })
-  //     }
-  //   })
-  // },
+  //积分提现记录
+  outRecord() {
+    wx.request({
+      url: api.outRecord(app.globalData.openid, this.data.page, this.data.size),
+      success: res => {
+        console.log(res)
+        if(res.data.status==1){
+          console.log('获取成功')
+          this.setData({
+            outRecord: res.data.info,
+            isEmpty:false
+          })
+        }else{
+          console.log('获取失败')
+          this.setData({
+            isEmpty:true
+          })
+        }
+
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -96,7 +116,11 @@ Page({
       title: '正在刷新',
     })
     setTimeout(()=>{
-      this.getRecord()
+      if (this.data.isSelect == 0){
+        this.getRecord()
+      }else{
+        this.outRecord()
+      }
       wx.hideLoading()
       wx.stopPullDownRefresh()      
     },1000)

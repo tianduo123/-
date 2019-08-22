@@ -28,7 +28,31 @@
       <view class='title'>积分规则</view>
     </view>
     <view class='rule_detail'>
-
+      <view class="rule_get">
+        <view class="get_title">
+          <image src="/icon/question.svg" style="width:40rpx;height:40rpx"></image>
+          <view>如何获取积分?</view>
+        </view>
+        <view class="get_content">
+          <view>1.用户购买成功后点击"我的"->"我的推荐码",即可生成携带用户标识的推荐码</view>
+          <view>2.将推荐码发送给好友</view>
+          <view>3.好友通过推荐码进入小程序,成功购买任意活动,你即可获赠100积分奖励</view>
+          <view>4.同一活动,同一好友仅可以为您获得1次积分奖励哦</view>
+          <view>注①:好友首次进入小程序必须是通过你的推荐码并且成功购买后才会给你奖励积分哦,</view>
+          <view>注②:尽量不要清除小程序缓存,缓存清除后推荐码也会消失,要想重新获取积分需要重新获取推荐码哦</view>
+        </view>
+      </view>
+      <view class="rule_use">
+        <view class="use_title">
+          <image src="/icon/question.svg" style="width:40rpx;height:40rpx"></image>
+          <view>如何使用积分?</view>
+        </view>
+        <view class="use_content">
+          <view>1.点击"我的"->"联系客服",与客服人员沟通兑换积分哦!(100积分可兑换价值1980元净水器一台)</view>
+          <view>2.客服服务时间:工作日 上午:9:00-12:00 下午:2:00-5:30</view>
+          <view>3.由于消费人数众多,客服沟通可能不及,还请您谅解</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

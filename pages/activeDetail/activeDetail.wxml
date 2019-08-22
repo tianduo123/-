@@ -1,4 +1,5 @@
 <!--pages/avtiveDetail/activeDetail.wxml-->
+<view class="top">199元抢购30000元活动礼包</view>
 <view class='wrap'>
   <!-- 活动规则 -->
   <view class='rule' bindtap='openRule'>活动规则</view>
@@ -10,12 +11,11 @@
       </view>
       <view class='title'>活动规则</view>
       <view class='rule_detail'>
-        <view>1.最近的工作主要是在配合宣传</view>
-        <view>2.最近的工作主要是在配合宣传，么要做哪吒？</view>
-        <view>3.最近的工作主要是在配合宣传，在路演过程中面对面接触到很多观众。基本所有人都会问我：为什么要做哪吒？</view>
-        <view>4.最近的工作主要是在配合宣传。基本所有人都会问我：为什么要做哪吒？</view>
-        <view>5.最近的工作主要是在配合宣传，在路演过程中面对面接触到很多观众。基本所有人都会问我：为什么要做哪吒？</view>
-        <view>6.最近的工作主要是在配合宣传</view>
+        <view>1.活动价值199元，即可享受所有联盟商家价值超过19900元的优惠产品和产品体验，产品绝对真实有效！</view>
+        <view>2.购买后自动生成订单，凭订单到各商家享受福利</view>
+        <view>3.如果还想同时赚钱！购买成功后每推荐一个人成功购买立即奖励100个积分进入个人积分账户！100个积分相当于100元现金，请跟客服联系，随时可以兑换成现金到你微信账户里。如：您推荐10个人成功购买，您就可以获得1000个积分，跟客服联系后，即刻兑换1000元现金红包到你的微信钱包！</view>
+        <view>4.活动购买成功即生效,届时到各商家向店员出示订单即可核销相关优惠。活动核销截止日期以商家截止日期为准</view>
+        <view>5.本活动为优惠价格，不支持任何退款，同意以上声明再付款，谢谢合作</view>
       </view>
     </view>
   </view>
@@ -27,10 +27,19 @@
     <view class='cat_time' wx:if='{{isEnd}}'>活动已结束</view>
     <view class='cat_time' wx:else>活动倒计时{{d}}天{{h}}小时{{m}}分钟{{s}}秒</view>
   </view>
+
+
+  <!-- 弹幕效果 -->
+  <wxs src='./activeDetail.wxs' module='random'></wxs>
+  <view class='danmu' wx:for='{{danmuList}}' wx:key style="top:{{random.Top()}}rpx;animation-delay:{{random.Time()}}s">
+    <image src="{{item.headimage}}" style="width:50rpx;height:50rpx;border-radius:50%"></image>
+    <view>恭喜{{item.nickname}}购买成功</view>
+  </view>
+
   <!-- 佣金提示 -->
   <view class='info'>
     <image src='/icon/tishi.svg' style='width:80rpx;height:80rpx'></image>
-    <view style='width:70%;'>每推荐一人购买活动，即可获得100元佣金奖励哦</view>
+    <view style='width:70%;'>每推荐一人购买活动，即可获得100积分奖励哦</view>
   </view>
   <!-- 联盟商家 -->
   <view class='shopList'>
@@ -38,13 +47,25 @@
       <swiper-item wx:for='{{newArr}}' wx:key>
         <view class='shopItem' wx:for='{{item}}' wx:key data-id='{{item.id}}' bindtap='toShopDetail'>
           <view style='display:flex;height:100%;flex-direction:column;justify-content:space-around;align-items:center'>
-            <image src='{{imgUrl+item.logo}}' style='width:60rpx;height:60rpx;border-radius:50%'></image>
+            <image src='{{imgUrl+item.logo}}' style='width:90rpx;height:90rpx;border-radius:50%'></image>
             <text style=' width: 90%;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap'>{{item.name}}</text>
           </view>
         </view>
       </swiper-item>
     </swiper>
   </view>
+  <!-- 优质商家轮播图 -->
+  <view class="swiper_shop">
+    <swiper autoplay style="height:100%">
+    <swiper-item wx:for='{{tjArr}}'wx:key>
+      <image src="{{imgUrl+item.card}}" style="width:100%;height:100%" data-id="{{item.id}}" bindtap="toShopDetail"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/icon/01.jpg" style="width:100%;height:100%" bindtap="toWater"></image>
+    </swiper-item>
+  </swiper>
+  </view>
+
   <!-- 佣金排行 -->
   <view class='rankList'>
     <view class='rankTitle'>
@@ -60,6 +81,11 @@
       <view class='price'>{{item.sum}}分</view>
     </view>
   </view>
+  <!-- 拍摄花絮 -->
+  <view class="huaxu">
+    <view style="margin-bottom:20rpx;color:#fff">拍摄花絮</view>
+    <video class="video" src="{{detail.video}}"></video>
+  </view>
 </view>
 <view class='bottom'>
   <button class='like' hover-class='none' open-type='{{isHasAuthorization?"":"getUserInfo"}}' bindgetuserinfo='getUserInfo' bindtap='{{isHasAuthorization?"like":""}}'>
@@ -70,10 +96,8 @@
   </button>
   <button class='pay' hover-class='none' open-type='{{isHasAuthorization?"":"getUserInfo"}}' bindgetuserinfo='getUserInfo' bindtap='{{isHasAuthorization?"pay":""}}'>
     <view>
-    <image src='/icon/buy.svg' style='width:40rpx;height:40rpx;margin-right:10rpx'></image>
-    <text>立即购买</text>
+      <image src='/icon/buy.svg' style='width:40rpx;height:40rpx;margin-right:10rpx'></image>
+      <text>立即购买</text>
     </view>
   </button>
 </view>
-
-<!-- <view class='pay' bindtap='pay'>立即购买</view> -->
