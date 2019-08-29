@@ -62,7 +62,8 @@ Page({
     console.log(e)
     if (e.currentTarget.dataset.status == 0) {
       wx.navigateTo({
-        url: `../orderDetail/orderDetail?id=${e.currentTarget.dataset.id}&bh=${e.currentTarget.dataset.bh}&time=${e.currentTarget.dataset.time}`,
+        // url: `../orderDetail/orderDetail?id=${e.currentTarget.dataset.id}&bh=${e.currentTarget.dataset.bh}&time=${e.currentTarget.dataset.time}`,
+        url: `../orderDetail/orderDetail?id=${e.currentTarget.dataset.id}&orderid=${e.currentTarget.dataset.orderid}&bh=${e.currentTarget.dataset.bh}`,
       })
     } else {
       console.log('带核销、已完成、已失效')

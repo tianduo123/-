@@ -9,15 +9,15 @@
 <view class='order'>
   <view class='order_item'>
     <view>订单金额</view>
-    <view>￥{{detail.price}}</view>
+    <view>￥{{orderDetail.ord_price}}</view>
   </view>
   <view class='order_item'>
     <view>订单编号</view>
-    <view>{{bh}}</view>
+    <view>{{orderDetail.ord_bh}}</view>
   </view>
   <view class='order_item'>
     <view>下单时间</view>
-    <view>{{time}}</view>
+    <view>{{orderDetail.add_time}}</view>
   </view>
   <view class='order_item'>
     <view>支付方式</view>

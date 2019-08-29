@@ -48,7 +48,7 @@
         <view class='shopItem' wx:for='{{item}}' wx:key data-id='{{item.id}}' bindtap='toShopDetail'>
           <view style='display:flex;height:100%;flex-direction:column;justify-content:space-around;align-items:center'>
             <image src='{{imgUrl+item.logo}}' style='width:90rpx;height:90rpx;border-radius:50%'></image>
-            <text style=' width: 90%;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap'>{{item.name}}</text>
+            <text style=' width: 90%;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color:#fff'>{{item.name}}</text>
           </view>
         </view>
       </swiper-item>
@@ -57,13 +57,13 @@
   <!-- 优质商家轮播图 -->
   <view class="swiper_shop">
     <swiper autoplay style="height:100%">
-    <swiper-item wx:for='{{tjArr}}'wx:key>
-      <image src="{{imgUrl+item.card}}" style="width:100%;height:100%" data-id="{{item.id}}" bindtap="toShopDetail"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/icon/01.jpg" style="width:100%;height:100%" bindtap="toWater"></image>
-    </swiper-item>
-  </swiper>
+      <swiper-item wx:for='{{tjArr}}' wx:key>
+        <image src="{{imgUrl+item.card}}" style="width:100%;height:100%" data-id="{{item.id}}" bindtap="toShopDetail"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="/icon/01.jpg" style="width:100%;height:100%" bindtap="toWater"></image>
+      </swiper-item>
+    </swiper>
   </view>
 
   <!-- 佣金排行 -->
@@ -74,9 +74,9 @@
     </view>
     <view class='rankItem' wx:for='{{rankList}}' wx:key>
       <view class='userInfo'>
-        <text style='color:#FF3300'>{{index+1}}</text>
+        <text style='color:#FFFF00'>{{index+1}}</text>
         <image src='{{item.headimage}}' style='width:50rpx;height:50rpx;border-radius:50%;margin:0 20rpx'></image>
-        <text style='color:#fff'>{{item.nickname}}</text>
+        <text>{{item.nickname}}</text>
       </view>
       <view class='price'>{{item.sum}}分</view>
     </view>
@@ -90,13 +90,13 @@
 <view class='bottom'>
   <button class='like' hover-class='none' open-type='{{isHasAuthorization?"":"getUserInfo"}}' bindgetuserinfo='getUserInfo' bindtap='{{isHasAuthorization?"like":""}}'>
     <view>
-      <image src='/icon/like.svg' style='width:40rpx;height:40rpx;margin-right:10rpx'></image>
+      <image src='/icon/like.svg' style='width:60rpx;height:60rpx;margin-right:10rpx'></image>
       <text>{{isLike==1?"已收藏":"收藏"}}</text>
     </view>
   </button>
   <button class='pay' hover-class='none' open-type='{{isHasAuthorization?"":"getUserInfo"}}' bindgetuserinfo='getUserInfo' bindtap='{{isHasAuthorization?"pay":""}}'>
     <view>
-      <image src='/icon/buy.svg' style='width:40rpx;height:40rpx;margin-right:10rpx'></image>
+      <image src='/icon/buy.svg' style='width:60rpx;height:60rpx;margin-right:10rpx'></image>
       <text>立即购买</text>
     </view>
   </button>

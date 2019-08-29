@@ -197,9 +197,23 @@ Page({
         } else if (res.data.status == 3) {
           setTimeout(() => {
             wx.hideLoading()
-            wx.showToast({
-              title: '该活动您有未支付的订单哦，快去支付吧',
-              icon: 'none'
+            // wx.showToast({
+            //   title: '该活动您有未支付的订单哦，快去支付吧',
+            //   icon: 'none'
+            // })
+            wx.showModal({
+              title: '提示',
+              content: '该活动您已下单是否跳转到订单页?',
+              success:re=>{
+                if(re.confirm){
+                  console.log('用户点击确定,跳转到订单页')
+                  wx.navigateTo({
+                    url: `../orderDetail/orderDetail?id=${res.data.activity_id}&orderid=${res.data.id}&bh=${res.data.ord_bh}`,
+                  })
+                }else{
+                  console.log('用户点击取消')
+                }
+              }
             })
           }, 1000)
         } else if (res.data.status == 4) {

@@ -50,6 +50,18 @@ Page({
       }
     })
   },
+  //订单详情
+  orderDetail(){
+    wx.request({
+      url: api.orderDetail(this.data.orderid),
+      success:res=>{
+        console.log(res)
+        this.setData({
+          orderDetail:res.data.datas
+        })
+      }
+    })
+  },
   //立即支付
   pay() {
     wx.request({
@@ -179,8 +191,11 @@ Page({
     this.setData({
       id: options.id,
       time: options.time,
-      bh: options.bh
+      orderid: options.orderid,
+      bh:options.bh
     })
+    this.avtiveDetail()
+    this.orderDetail()
   },
 
   /**
@@ -194,7 +209,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.avtiveDetail()
+   
+
   },
 
   /**
